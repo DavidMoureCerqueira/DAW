@@ -1,0 +1,25 @@
+p {
+ font-size: 1.5em;
+ color: blue;
+}
+#cabeceira {
+ font-size: 3em;
+ color: peru;
+}
+.cadro {
+ border: 5px solid rgb(118, 221, 62);
+}
+p.cadroamarelo{
+    background-color: yellow;
+}
+div.cadroamarelo {
+ border: 5px solid red;
+}
+.cadroamarelo{
+    background-color: green;
+}
+
+.cadro.cadroamarelo{
+    font-style: italic;
+    text-decoration: underline;
+}
