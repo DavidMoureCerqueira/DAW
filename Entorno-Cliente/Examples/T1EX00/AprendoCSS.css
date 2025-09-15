@@ -1,3 +1,38 @@
+/* Reset basico para mejorar la compatibilidad */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+/* 
+Coma (,): permite referirse a todos os elementos dunha listaxe. 
+Espazo ( ): permite referirse a todos os elementos descendentes
+Maior (>): permite referirse a todos os elementos fillos, hijos de primer nivel
+Suma (+): permite referirse ao primeiro elementos irmán
+Vírgula (~): permite referirse a todos os elementos irmáns do elemento afectado. */
+
+/* Ademais do anterior, este selector é aplicable en negativo, indicando por exemplo
+aqueles atributos que non cumpran a condición:
+img:not([alt]) {
+ width:100px;
+} */
+
+/* Selector de atributos por palabras: permite aplicar estilos a elementos HTML que
+teñan atributos cun valor que conteña o texto indicado coma palabra5
+img[src~=”imaxe”] {
+ border: 2px dotted gray;
+}
+ */
+
+ /* pseudoclases interesantes: --> pseudoclase: y pseudoselectores::
+ hoover
+ focus */
+ /* input:optional Aplícase aos input non teñan o atributo required definido.
+input:out-of-range Aplícase aos input cuxo valor estea fora do rango indicado.
+input::placeholder Aplícase aos input que teñan o atributo placeholder definido.
+input:read-only Aplícase aos input que teñan o atributo readonly definido.
+input:read-write Aplícase aos input que non teñan o atributo readonly definido. */
+/* font-size -->vw,vh--> viewport del width y heigh de la pantalla, en porcentajes */
 p {
  font-size: 1.5em;
  color: blue;

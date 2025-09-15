@@ -3,6 +3,7 @@ margin: 0;
 padding: 0;
 box-sizing:border-box
 }
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5;
@@ -15,7 +16,9 @@ header{
 }
 
 header h1{
-    color:rgb(49, 54, 54)
+    color:rgb(182, 131, 58);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: -5px 5px 5px;
     
 }
 
@@ -56,8 +59,13 @@ nav ul{
 main{
  display:flex;
  flex-direction: row;
- background-color: aliceblue;
+ /* background-color: aliceblue; */
+ background-image: url(burnout-2733028.jpg);
+ background-repeat: no-repeat;
+ background-size: 100%;
+ color:rgb(97, 62, 37);
 }
+
 main article{
 width: 70%;
 }
@@ -75,7 +83,7 @@ border-top-right-radius: 0px;
 border-bottom-right-radius: 0px;
 height: fit-content;
 padding:30px;
-background-color: rgb(243, 225, 209);
+background-color: rgba(243, 225, 209,0.6);
 }
 
 main article section{
@@ -84,22 +92,48 @@ margin:20px;
 
 }
 main section h2{
-text-align: center;}
+    font-size: 2em;
+    color:rgb(92, 63, 23);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: -5px 5px 5px;
+}
 
 main section img{
 display: block;
 margin:20px auto 20px auto;
 padding: 20px;
 }
+
+aside{
+    margin-top: 50px;
+}
+
+aside a{
+    text-decoration: none;
+    font-weight: bold;
+    color:rgb(92, 63, 23);
+}
+
 h1,h2{
 text-align: center;
 }
 footer{
 background-color: rgb(240, 198, 143);
 }
+footer h2{
+    color:rgb(92, 63, 23);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: -5px 5px 5px;
+}
 footer a{
 text-decoration: none;
 color:rgb(115, 116, 228);
+}
+
+footer a:hover{
+    color:aliceblue;
+    text-decoration: underline;
+    font-size: x-large;
 }
 #Redes{
 display: flex;
