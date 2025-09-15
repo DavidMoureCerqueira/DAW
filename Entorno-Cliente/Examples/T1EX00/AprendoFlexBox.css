@@ -1,0 +1,34 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.contenedor{
+    background-color: gray;
+    display: flex;
+    /* flex-direction:row-reverse; */
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+    flex-flow:row wrap;
+    justify-content: center;
+    align-items: stretch;
+
+    height: 20vh;
+    margin:20px;
+
+}
+
+.objeto{
+    border: 2px solid salmon;
+    width: 300px;
+    /*flex-grow:1; Valor por defecto 0. Hace que se estire y ocupe más*/
+    /* flex-shrink: 1; Valor por defecto 1. hace que se adapte y encoja */
+    /* flex-basis:auto; Valor por defecto auto. Se utiliza para que unos objetos crezcan mas que otros */
+    flex: 0 1 auto /*Conjunto de los tres valores anteriores*/
+}
+.grande{
+    font-size: 250%;
+    order:-1  /*Valor por defecto 0. Sirve para alterar el orden de los elementos, valor negativo va a la izquierda, valor positivo va a la derecha*/
+    
+}
