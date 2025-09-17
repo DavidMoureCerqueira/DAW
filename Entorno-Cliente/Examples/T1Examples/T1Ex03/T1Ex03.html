@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="T1Ex03.css">
     <title>T1Ex03</title>
 </head>
 <body>
@@ -10,14 +11,79 @@
 
     <legend>Identificación. ¿Quién eres?</legend>
     <fieldset>
+        <!-- Campo para el nombre -->
+        <label for="nombre">Nombre completo</label>
+        <br>
+        <input id="nombre" name="Nombre" type="text" placeholder="Paco Martinez Garrido">
+        <br>
+        <br>
+        <!-- Campo para el email formateado por email -->
         <label for="email">Email</label>
-        <input id=email  type="email" placeholder="user@example.com" minlength="6"
-        pattern="(?=.[a-z])(?=.[A-Z])(?=-[0-9])\S{*,}"> 
+        <br>
+        <input 
+        id=email
+        name="email"
+        type="email"
+        placeholder="user@example.com"
+        >
         <br/>
         <br/>
-
+        
         <label for="password">Contraseña</label>
-        <input id="password" type="password" value="password"
+        <br>
+        <input id="password" name="password" type="password" value="password"
+        pattern="^.{6,}$" required> 
+        <br>
+        <br>
+        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+        <br>
+        <input type="date" name="FechaNacimiento" id="fechaNacimiento" required>
+        <br>
+        <br>
+        <div>Genero</div>
+        <br>
+        <input id="GenHombre" type="radio" name="genero" id="genero" value="Hombre" required>
+        <label for="GenHombre">Hombre</label>
+        <input id="GenMujer" type="radio" name="genero" id="genero" value="Mujer" required >
+        <label for="GenMujer">Mujer</label>
+        <input id="GenHelicoptero" type="radio" name="genero" id="genero" value="HelicopteroApache" required 
+        <label for="GenHelicoptero">Helicoptero apache</label>
+
+        <br>
+        <br>
+        <div>Que lenguaje/s de programación es tu favorito</div>
+        <br>
+        <input  type="checkbox" name="Java" id="Java">
+        <label for="Java">Java</label>
+        <br>
+        <input  type="checkbox" name="Python" id="Python">
+        <label for="Python">Python</label>
+        <br>
+        <input  type="checkbox" name="JavaScript" id="JavaScript">
+        <label for="JavaScript">JavaScript</label>
+        <br>
+        <input  type="checkbox" name="PHP" id="PHP">
+        <label for="PHP">PHP</label>
+        <br>
+        <br>
+
+        <label for="Pais">Cual es tu pais de nacimiento.</label>
+        <select name="Pais" id="Pais" required>
+
+            <option value="disabled"></option>
+            <option value="Venezuela">Venezuela</option>
+            <option value="España">España</option>
+            <option value="Korea">Korea</option>
+            <option value="Japon">Japon</option>
+            <option value="Francia">Francia</option>
+
+        </select>
+        <br>
+        <br>
+        <button type="submit">Enviar</button>
+        <button type="reset">Reset</button>
+        <br>
+        <br>
     </fieldset>
 
 

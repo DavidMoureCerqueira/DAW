@@ -10,25 +10,39 @@
     /* flex-direction:row-reverse; */
     /* flex-direction: row;
     flex-wrap: wrap; */
-    flex-flow:row wrap;
-    justify-content: center;
-    align-items: stretch;
+    /* Define la alineacion de los elementos hijos respecto al eje principal */
+    flex-flow:row wrap; 
+    justify-content: flex-start;
+    
+    align-items: center;
+    align-content: baseline;
 
-    height: 20vh;
+    height: 20vh; /*Viewport horizontal en porcentaje*/
     margin:20px;
-
+    gap: 10px 20px;
 }
 
 .objeto{
     border: 2px solid salmon;
-    width: 300px;
-    /*flex-grow:1; Valor por defecto 0. Hace que se estire y ocupe más*/
-    /* flex-shrink: 1; Valor por defecto 1. hace que se adapte y encoja */
-    /* flex-basis:auto; Valor por defecto auto. Se utiliza para que unos objetos crezcan mas que otros */
-    flex: 0 1 auto /*Conjunto de los tres valores anteriores*/
+    width: 200px;
+    flex-grow:0; /*Valor por defecto 0. Cambia el tamaño de un determinado elemento respecto a los demás.Hace que se estire y ocupe más, no es exactamente el doble, indica que es mas grande pero no sigue una "proporcion"*/
+    /* flex-shrink: 0; Valor por defecto 0. Cambia el tamaño a un determinado elemento respecto a los demás. Hace que se enconja para que se adapte mejor */
+    /* flex-basis:auto; Valor por defecto auto. Se utiliza para que unos objetos crezcan mas que otros en función del tamaño disponible Acepta pixeles, porcentajes, etc*/
+    flex: 0 0 auto /*Grow-shrink-basis. Conjunto de los tres valores anteriores*/
 }
 .grande{
     font-size: 250%;
-    order:-1  /*Valor por defecto 0. Sirve para alterar el orden de los elementos, valor negativo va a la izquierda, valor positivo va a la derecha*/
+    order:-1;  /*Valor por defecto 0. Sirve para alterar el orden de los elementos, cuanto mas pequeño el numero mas a la izquierda, cuanto mayor sea el valor mas a la derecha. (Admite numeros negativos)*/   
+    flex-grow:2; 
+    align-self:flex-start;/*El por si mismo se alinee donde le digamos*/ 
+
+}
+.mediano{
+    font-size: 150%;
+    flex-grow:1;
     
+}
+
+.pequeno{
+    flex-shrink: 1;
 }
