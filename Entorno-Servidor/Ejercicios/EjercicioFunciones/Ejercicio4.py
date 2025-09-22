@@ -15,4 +15,4 @@ def decimal_to_binario(numero):
 
         return decimal_to_binario(numero//2)
     
-decimal_to_binario(110)
+decimal_to_binario(9)
