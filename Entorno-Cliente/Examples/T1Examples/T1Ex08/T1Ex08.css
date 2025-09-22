@@ -1,0 +1,29 @@
+.contenedor{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+.tarjeta{
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+#tarjeta1{
+    background-color: lightgreen;
+}
+#tarjeta2{
+    background-color: rgb(43, 22, 236);
+}
+#tarjeta3{
+    background-color: rgb(235, 66, 15);
+}
+#tarjeta4{
+    background-color: rgb(247, 24, 210);
+}
+#tarjeta5{
+    background-color: rgb(62, 121, 126);
+}
+

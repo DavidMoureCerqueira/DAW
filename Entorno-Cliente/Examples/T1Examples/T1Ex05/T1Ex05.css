@@ -16,4 +16,7 @@ h1{
     text-align: center;
     padding: 50px;
 }
-
+main{
+    background-color: aqua;
+    width: 100%;
+}
