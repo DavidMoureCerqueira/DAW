@@ -1,161 +1,53 @@
 *{
-margin: 0;
-padding: 0;
-box-sizing:border-box;
-}
-
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5;
-}
-header{
-    grid-area: header;
-    background-color: antiquewhite;
-    text-align:center;
-    box-shadow: 1px 4px rgb(236, 206, 167);
-    padding-top: 20px;
-}
-
-header h1{
-    color:rgb(182, 131, 58);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-shadow: -5px 5px 5px;
-    
-}
-
-ul{
-padding:0px
-}
-
-nav{
-    width:100%;
-    border-right: 30px;
-    border-left:30px;
-    padding-top:20px;
-}
-
-nav a{
-text-decoration: none;
-color:chocolate
-}
-
-nav li{
-
-width: 100%;
-background-color: rgb(236, 206, 167);
-}
-
-li{
-list-style-type: none;
-}
-nav li a:hover{
-color:  rgb(225, 230, 214);
-}
-
-nav ul{
-    display: flex;
-    justify-content: space-between;
-}
-
-main{
- /* background-color: aliceblue; */
- background-image: url(burnout-2733028.jpg);
- background-repeat: no-repeat;
- background-size: cover;
- color:rgb(97, 62, 37);
-}
-
-main article{
-max-width: 500px;
-}
-
-main article {
-padding:50px;
-}
-
-main aside{
-width:30%;
-border: 4px solid rgb(231, 195, 161);
-border-right: none;
-border-radius: 20px;
-border-top-right-radius: 0px;
-border-bottom-right-radius: 0px;
-height: fit-content;
-padding:30px;
-background-color: rgba(243, 225, 209,0.6);
-}
-
-article{
-
-grid-area:articulo
-}
-
-main article section{
-padding: 20px;
-margin:20px;
-
-}
-main section h2{
-    font-size: 2em;
-    color:rgb(92, 63, 23);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-shadow: -5px 5px 5px;
-}
-
-main section img{
-display: block;
-margin:20px auto 20px auto;
-padding: 20px;
-}
-
-aside{
-    grid-area: aside;
-    margin-top: 50px;
-}
-
-aside a{
-    text-decoration: none;
-    font-weight: bold;
-    color:rgb(92, 63, 23);
-}
-
-h1,h2{
-text-align: center;
-}
-footer{
-background-color: rgb(240, 198, 143);
-}
-footer h2{
-    color:rgb(92, 63, 23);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-shadow: -5px 5px 5px;
-}
-footer a{
-text-decoration: none;
-color:rgb(115, 116, 228);
-}
-
-footer a:hover{
-    color:aliceblue;
-    text-decoration: underline;
-    font-size: x-large;
-}
-#Redes{
-display: flex;
-justify-content: space-around;
-gap:10px;
-padding: 10px 20px 30px 20px;
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
 }
 
 .contenedor{
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 200px 3fr; 
+    grid-template-rows: auto 1fr 1fr auto;
+
+    text-align: center;
 
     grid-template-areas:
-    "header header"
-    "nav" "articulo"
-    "aside" "articulo"
-    "footer" "footer"
+    "header1 header1"
+    "navegador articulo"
+    "aside articulo"
+    "pie pie"
+
+}
+header{
+    grid-area:header1;
+    border:2px solid black;
+    width:100%;
+    padding:20px;
+}
+nav{
+    grid-area:navegador;
+    border:2px solid black;
+    width:100%;
+    padding:20px;
 }
 
+aside{
+    grid-area:aside;
+    border:2px solid black;
+    width:100%;
+    padding:20px;
+}
+
+article{
+    grid-area:articulo;
+    border:2px solid black;
+    width:100%;
+    padding:20px;
+}
+
+footer{
+    grid-area:pie;
+    border:2px solid black;
+    width:100%;
+    padding:20px;
+}
