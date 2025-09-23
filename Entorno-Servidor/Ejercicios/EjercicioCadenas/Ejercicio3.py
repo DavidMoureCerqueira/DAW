@@ -3,4 +3,8 @@ Mostra este texto por pantalla.
 '''
 
 cadena=str(input("Introduce una palabra o cadena de caraceteres\n"))
-
+cadenaSinConso=''
+for letra in cadena:
+    if letra.lower() not in 'bcdfghjklmnrñpqrstvwxyz':
+        cadenaSinConso+=letra
+print(cadenaSinConso)
