@@ -1,0 +1,112 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+body{
+    background-color: lightgrey;
+}
+main{
+    max-width: 1200px;
+    /* margin: 2rem auto;
+    padding: 0 1rem; */
+}
+header{
+    background-color: grey;
+    padding: 50px;
+    text-align: center;
+    color:white;
+    border-bottom: 2px solid white;
+}
+
+.galeria{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* gap: 1.5rem; */
+    flex-wrap: wrap;
+    align-items: center;
+    /* margin: auto; */
+}
+
+.tarjeta{
+    /* margin: 15px;
+    padding: 20px; */
+    background-color: aqua;
+    border-radius: 10px;
+    box-shadow: 0 0 5px;
+    flex: 1 1 280px;
+    max-width: 400px;
+    min-width:280px;
+    /*width: 30vw;*/
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+     transition:    transform  0.2s ease-in-out,
+                    color 0.5 ease in;
+    
+}
+.tarjeta img{
+    border-radius: 15px;
+    padding-bottom: 10px;
+}
+
+footer{
+    position:fixed;
+    bottom:0px;
+    background-color: grey;
+    width: 100%;
+    padding: 50px;
+    text-align: center;
+    color:white;
+    border-top:2px solid white;
+}
+
+.tarjeta:hover{
+    
+    transform:  scale(1.5);
+    color:red;
+
+}
+
+
+@media (min-width:901px){
+    .galeria{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: red;
+        
+    }
+    .tarjeta{
+        flex:1 1 290px;
+    }
+
+
+}
+@media (min-width:601px)and (max-width:900px){
+
+    .galeria{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        background-color: yellow;
+        
+    }
+    .tarjeta{
+        flex:1 1 45%;
+        min-width: 100px;
+        max-width:330px;
+    }
+}
+@media (max-width:600px){
+
+    .galeria{
+        display: flex;
+        flex-direction: column;
+        background-color: black;
+    }
+
+
+}

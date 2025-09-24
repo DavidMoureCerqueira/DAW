@@ -1,0 +1,55 @@
+.novas{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    margin-left: 10px;
+    width: 80%;
+}
+.novas article:first-child{
+    background-color: aqua;
+    border-left: 4px solid blue;
+}
+
+.novas article:nth-child(2){
+    background-color: rgb(117, 117, 240);
+    border-left: 4px solid navy;
+}
+.novas article:last-child{
+    background-color: rgb(111, 241, 111);
+    border-left: 4px solid green;
+}
+
+.novas article{
+    background-color: rgb(241, 111, 111);
+    margin: 10px;
+    padding: 5px 15px;
+    
+    border-left: 4px solid red;
+    border-radius: 20px;
+}
+.novas article::before{
+    content:"📰";
+    position: absolute;
+    left: -2px;
+    
+    width: 10%;
+    
+}
+
+article a{
+    text-decoration: none;
+    color: black;
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+ul li::after{
+    content:"→";
+    text-decoration:underline;
+    color:blue;
+}
