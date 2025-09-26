@@ -97,14 +97,27 @@ article a {
     gap: 10rem;
 
 }
+.menu a{
+    color: blue;
+    padding: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+.menu a:hover, 
+.menu a:focus{
+    background-color: white; /*Solo le aplica a esta porque es definido asi*/
+    border-radius: 10px;
+}
+.menu a:active{
+    background-color: red;
+}
 .menu li{
     list-style-type: none;
     
 
 }
 
-ul li::after {
-    content: "→";
+ul li a::after {
+    content: " →";
     text-decoration: underline;
     color: blue;
 }
@@ -120,3 +133,4 @@ footer {
     
 
 }
+
