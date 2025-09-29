@@ -5,14 +5,16 @@ Aquí tes un fragmento de código para probar a función:'''
 
 def agrupar_datos_por_valor(diccionario):
     retorno = {}
-    lista=[]
+ 
     for clave, valor in diccionario.items():
-        print(clave, valor)
-        for valor_dict in valor:
-            
-            if valor_dict:
+        
+        for v in valor:
+            if v not in retorno:
+                retorno[v]=[]
+                retorno[v].append(clave)
                 
-                print(f"segundo for",valor_dict)
+            else:
+                retorno[v].append(clave)
                 
         # retorno.update({valor:lista})
     return retorno
