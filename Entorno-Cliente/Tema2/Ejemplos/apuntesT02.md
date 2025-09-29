@@ -38,6 +38,7 @@ _let_ --> Es la que vamos a usar
 Tiene ambito de bloque (si lo declaro en un bucle muere al acabar el bucle), igual con las funciones
 let nombre;
 
+
 _const_ --> No se puede redefinir y tiene un ambito de bloque
 Los objetos y arrays pueden modificar internamente el valor de la const
 
@@ -82,3 +83,77 @@ let estudiante={
 Identificar tippos --> **typeof**
 
 Array.isArray()
+
+innerHTML --> Introduce codigo o texto al html y hay que decirle en donde
+document.getElementById("")
+
+textContent --> ignora el html (etiquetas) y el css
+
+innerText --> ignora la etiqueta html pero respeta el css
+
+insertAdjacentText("","")--> no renderiza las etiquetas html. Utiliza dos parametros
+primer parametro --> beforebegin, afterbegin, beforeend, afterend
+
+beforebegin--> Antes de la etiqueta
+afterbegin --> Despues de la etiqeuta de inicio
+beforeend--> antes de que acabe la etiqueta
+afterbegin--> Despues de que acabe el elemnto
+
+insertAdjacentHTML("","")--> Es como el anterior con los mismos parametros pero renderizando las etiquetas
+
+window tiene un metodo para hacer preguntas si y no window.confirm("pregunta")
+
+ojo con ++x y x++
+
+== compara el valor solo 3=='3' -->true
+=== compara valor y tipo 3==='3' --> false
+
+
+# Operado por propagacion o spread --> 
+
+Se utiliza para hacer combinaciones de arrays
+
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+let combinado = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
+
+Copia de arrays: permite realizar unha copia __«por valor»__ dun array.
+let arr = [1, 2, 3];
+let copia = [...arr]; // [1, 2, 3]
+
+Combinar ou estender obxectos: permite unir dous ou máis obxectos, combinando as
+propiedades de nome distinto e __sobreescribindo__ as compartidas en orde de lectura.
+let obx1 = { a: 1, b: 2 };
+let obx2 = { a: 5, c: 3, d: 4 };
+let combinado = { ...obx1, ...obx2 }; // { a: 5, b: 2, c: 3, d: 4 }
+
+Copia de obxectos: permite realizar unha copia __«por valor»__ dun obxecto.
+Utiliza diferente direcciones de memoria
+let obx = { a: 1, b: 2 };
+let copia = { ...obx }; // { a: 1, b: 2 }
+
+# Funcion flecha
+Como operador de resto (rest operator): permite convertir nun array o conxunto de
+parámetros pasados a unha función.
+function suma(...numeros) {
+ return numeros.reduce((total, actual) => total + actual, 0);
+}
+
+Va sumando seguido y empezando en el indice 0,
+Funciona asi por culpa del reduce (Dentro deberia ir el nombre de la funcion con sus parametros pero se puede omitir)=> lo que hace y donde empieza
+suma(1, 2, 3, 4); // 10
+
+
+● Desestruturar arrays: permite asignar nome ás distintas partes dun array por
+eliminación, coma se de variables se tratase.
+let [a, b, ...resto] = [1, 2, 3, 4, 5];
+console.log(a); // 1
+console.log(b); // 2
+console.log(resto); // [3, 4, 5]
+
+● Desestruturar obxectos: permite asignar nome ás distintas partes dun obxecto por
+eliminación, coma se de variables se tratase.
+let { x, y, ...resto } = { x: 1, y: 2, z: 3, a: 4 };
+console.log(x); // 1
+console.log(y); // 2
+console.log(resto); // { z: 3, a: 4 }
