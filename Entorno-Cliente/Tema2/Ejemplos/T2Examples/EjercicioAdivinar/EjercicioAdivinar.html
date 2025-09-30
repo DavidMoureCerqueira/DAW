@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./EjercicioAdivinar.js"></script>
+    <script src="./EjercicioAdivinar.js" defer></script>
+    <link rel="stylesheet" href="EjercicioAdivinar.css">
     <title>Intenta Adivinar</title>
 </head>
 <body>
-    <input id="intento" type="text">
-    <button (onclick)="intentarAdivinar(intento)">Adivinar</button>
+    <h1>Intenta adivinar el numero</h1>
+    <p>Tengo en mente un numero entre 0 y 100, veamos cuantos intentos necesitas</p>
+    <input id="intentoNum"  type="text">
+    <button onclick="intentarAdivinar()">Adivinar</button>
     <p id="mensaje"></p>
     <p id="intentos"></p>
     

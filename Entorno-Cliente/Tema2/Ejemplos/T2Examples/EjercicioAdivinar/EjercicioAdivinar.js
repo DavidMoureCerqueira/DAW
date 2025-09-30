@@ -1,33 +1,38 @@
 const numeroAleatorio=Math.round(Math.random()*100);
+console.log(numeroAleatorio)
 
-const posicionMensaje=document.getElementById("mensaje");
-const posicionIntentos=document.getElementById("intentos");
+let posicionMensaje=document.getElementById("mensaje");
+let posicionIntentos=document.getElementById("intentos");
 
-let intentos=0;
 
-function intentarAdivinar(intento){
-    
-    intento++;
-    posicionIntentos.insertAdjacentHTML("beforeend",intento)
-    if(esNumeroValido(intento)){
+let contadorIntentos=0;
+posicionIntentos.innerText=`Intentos: ${contadorIntentos}`
+posicionMensaje.innerText= "Recuerda entre 0 y 100";
+function intentarAdivinar(){
+    let intentoNum=document.querySelector("#intentoNum").value;
+    console.log(intentoNum)
+    contadorIntentos++;
+    posicionIntentos.innerText=`Intentos: ${contadorIntentos}`
+    if(esNumeroValido(intentoNum)){
 
-        if(intento<numeroAleatorio){
-            posicionMensaje.insertAdjacentHTML("beforeend", "El numero es mas alto");
+        if(intentoNum<numeroAleatorio){
+            posicionMensaje.innerText= "El numero es mas alto";
         }
-        else if(intento>numeroAleatorio){
-            posicionMensaje.insertAdjacentHTML("beforeend", "El numero es mas bajo");
+        if(intentoNum>numeroAleatorio){
+            posicionMensaje.innerText= "El numero es mas bajo";
         }
-        else{
-            window.alert("Enhorabuena has acertado!!")
+        if(intentoNum==numeroAleatorio){
+            window.alert(`Enhorabuena has acertado!! en ${contadorIntentos} intentos`)
         }
     }else{
-        posicionMensaje.insertAdjacentHTML("beforeend","El numero tiene que estar entre 0 y 100");
+        posicionMensaje.innerText="El numero tiene que estar entre 0 y 100";
     }
+
 }
 
 function esNumeroValido(numero){
-    if (numero<0 && numero>100){
-        return false;
+    if (numero>0 && numero<100){
+        return true;
     }
-    return true;
+    return false;
 }
