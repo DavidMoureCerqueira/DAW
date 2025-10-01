@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./EjercicioAdivinar.js" defer></script>
-    <link rel="stylesheet" href="EjercicioAdivinar.css">
+    <link rel="stylesheet" href="EjercicioAdivinar.css" />
     <title>Intenta Adivinar</title>
-</head>
-<body>
-    <h1>Intenta adivinar el numero</h1>
-    <p>Tengo en mente un numero entre 0 y 100, veamos cuantos intentos necesitas</p>
-    <input id="intentoNum"  type="text">
-    <button onclick="intentarAdivinar()">Adivinar</button>
-    <p id="mensaje"></p>
-    <p id="intentos"></p>
-    
-
-</body>
+  </head>
+  <body>
+    <section>
+        <div class="contenedorTitulo">
+            <h1>Intenta adivinar el numero</h1>
+        </div>
+      <p>
+        Tengo en mente un numero entre 0 y 100, veamos cuantos intentos
+        necesitas
+      </p>
+      <input id="intentoNum" type="number"  autofocus placeholder="Introduce un numero"/>
+      <button onclick="intentarAdivinar()">Adivinar</button>
+      <p id="mensaje"></p>
+      <p id="intentos"></p>
+    </section>
+  </body>
 </html>
