@@ -157,3 +157,20 @@ let { x, y, ...resto } = { x: 1, y: 2, z: 3, a: 4 };
 console.log(x); // 1
 console.log(y); // 2
 console.log(resto); // { z: 3, a: 4 }
+
+
+# EXAMEN
+
+# Orden de comparacion
+()
+! ->not
+** ->potencia
+/ * %
++ -
+Comparacion
+< > <= >= 
+== ===
+logica 
+|| &&
+
+
