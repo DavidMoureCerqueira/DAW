@@ -174,3 +174,13 @@ logica
 || &&
 
 
+#Map y Set
+
+Map->   Es muy parecido a un objeto ya que tambien se identifica por clave-valor, pero en un objeto las claves son strings, hasta las propias claves pueden ser objetos con Map, es como un diccionario de Python
+
+Set->   Coleccion de elementos sin clave, cada valor solo puede aparecer una vez, como un conjunto de Python
+
+#for
+
+forin declaras un index for (index in personas)
+forof declaras el objeto del tipo que recorrers for(persona in personas)
