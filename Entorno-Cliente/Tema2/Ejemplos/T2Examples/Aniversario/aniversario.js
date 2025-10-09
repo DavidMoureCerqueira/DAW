@@ -17,7 +17,7 @@ function calcularAniversario() {
 
             let fechaDeseada = new Date(fechaNacimiento);
             fechaDeseada.setFullYear(new Date().getFullYear())
-            let diaSemana = document.querySelector("#dia").value;
+            let diaSemana = Number(document.querySelector("#dia").value);
             fechaDeseada.setHours(0,0,0,0)
             //TODO: Falta comprobar si el dia es null
    
@@ -44,7 +44,16 @@ function calcularAniversario() {
             let edad = fechaDeseada.getFullYear() - fechaNacimiento.getFullYear();
 
             let fechaString = fechaDeseada.toDateString()
-            posicionResultado.innerHTML = `<p>Faltan <strong>${diasRestantes} días </strong>hasta tu fecha deseada </p> <p>En tu aniversario deseado, si llegas, tendrás <strong>${edad} años</strong>. La fecha exacta será ${fechaString}</p>`
+            //Para imprimir el dia
+            const options={
+                weekday:"long",
+                year:"numeric",
+                month:"long",
+                day:"numeric"
+            }
+            let fechaFormateada=fechaDeseada.toLocaleDateString('gl-ES',options)
+            posicionResultado.innerHTML = `<p>Faltan <strong>${diasRestantes} días </strong>hasta tu fecha deseada </p> <p>En tu aniversario deseado, si llegas, tendrás <strong>${edad} años</strong>. La fecha exacta será ${fechaFormateada}</p>`
+        
         } else {
             posicionResultado.innerHTML = '<h2>*ERROR*<hr/>La fecha de nacimiento es mayor a la actual</h2>';
         }
