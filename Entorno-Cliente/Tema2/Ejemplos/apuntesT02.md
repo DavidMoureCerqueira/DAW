@@ -208,5 +208,38 @@ Lo recomendable es usar --> array.splice() -->extrae un sub-array formado por lo
 
 #Metodos de arrays
 array.pop() -->elimina el ultimo y lo devuelve
-array.shift() --> elimina el primer elemento
+array.push() --> Introduce al finla
+array.shift() --> elimina el primer elemento y lo devuelve
 array.unshift()--> añade al primer elemento
+array.slice(posIni, posFin)--> Crea un array partiendo de un arraqy creado, no modifica el array original
+array.splice() -->Elimina elementos que coincidan con el de un array y permite añadir nuevos
+array.concat(): une dos o más arrays devolviendo el resultado tambien en forma de array.
+array.includes(): determina se o array inclúe un valor concreto. busca el elemento entero
+array.indexOf(): procura no array o elemento indicado e devolve a súa posición (ou -1 se non
+o atopa). Pódese indicar, opcionalmente, unha posición de inicio da procura.
+array.lastIndexOf(): procura no array o elemento indicado comezando polo final ou,
+opcionalmente, nunha posición indicada ad hoc. Devolve a súa posición do elemento (ou -1
+se non o atopa).
+array.toString()
+array.join() hace lo mismo que toString pero eliges con que lo une
+array.sort() ordena el array --> No ordena numeros como numericos para que orden numericamento--> array.sort(function(a,b){return a-b}) de menor a mayor
+array.sort(function(a,b){return b-a}) de mayor a menor a la function podria ponersele nombre o poner funcion de flecha si es un objeto habria que hacer a.id, b.id porque a y b son elementos del array
+array.reverse() invierte el orden de los elementos de un array
+array.keys() devuelve un objeto Array iterator
+array.isArray() devuelve true o false si es array o no
+array.some() comprueba si alguno de los elementos del array y le hace una prueba, para comprobar si la cumple devolver true or false 
+letras.some(function(busca) {return busca.includes("m")}) podria ser con funcion de flecha
+letras.every(function(busca) {return busca.lenght >4}) Solo da true si todas dan true, si una no da true, da false
+let resultadoFind = letras.find(function (busca) { return busca.startsWith("d") }) //Devuelve el primer elemento que cumple la condicion
+findIndex() como fin() pero devuelve el indice 
+let resultadoFilter = letras.filter(function (busca) { return busca.length % 2 == 0 }) //DFiltra por una condicion
+let resultadoFilterEliminar = letras.filter(function (busca) { return busca != "epsilon" }) //Fitlra por una condicion y crea un nuevo array sin ese que no coincide
+array.map() crea una nuevo array que pasa cada elemento a una funcion para que lo transforme
+let resultadoMap = letras.map(busca => {busca + '('+busca.length+')'})
+forEach()
+letras.forEach(function (busca) { return numLetras += busca.length })
+console.log(numLetras)
+
+reduce() reduce los valores del array a uno solo apliucando una funcion pasado como parametro a cada elemento de izquierda a derecha. El valor devuelto por la funcion se guarda en un acumulador, necesita la inicializacion de la variable suma
+
+reduceRight() hace lo mismo pero de derecha a izquierda ejemplo en T2Ex23

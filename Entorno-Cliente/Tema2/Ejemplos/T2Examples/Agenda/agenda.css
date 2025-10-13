@@ -44,9 +44,22 @@
 }
 
 .botones{
-    padding-left:2rem;
-    padding-right:2rem;
+    padding:1rem;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+
+}
+.historialEventos{
+  padding: 1rem;
+
+}
+.historialEventos h2{
+  text-align: center;
+
+}
+.listaEventos{
+  list-style: none;
+
 }
