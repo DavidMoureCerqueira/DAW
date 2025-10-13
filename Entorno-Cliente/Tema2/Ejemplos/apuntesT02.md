@@ -184,3 +184,29 @@ Set->   Coleccion de elementos sin clave, cada valor solo puede aparecer una vez
 
 forin declaras un index for (index in personas)
 forof declaras el objeto del tipo que recorrers for(persona in personas)
+
+
+#Arrays
+
+Se pueden crear con los valores
+let array=[1,2,3,4,5]
+let array=new Array()
+let array=new Array(1,2,3,4,5)
+Para acceder a los elementos array[indice]
+El ultimo: array[array.length-1]
+
+Recorrer
+while
+for
+for in
+for of
+
+Eliminar:
+array[indice]=null; --> Lo elimina pero sigue existiendo la posicion y por eso tiene la misma longitud
+delete array[2] --> Hace como el anterior pero en vez de en esa posicion dar null da undefined
+Lo recomendable es usar --> array.splice() -->extrae un sub-array formado por los elementos indicados
+
+#Metodos de arrays
+array.pop() -->elimina el ultimo y lo devuelve
+array.shift() --> elimina el primer elemento
+array.unshift()--> añade al primer elemento
