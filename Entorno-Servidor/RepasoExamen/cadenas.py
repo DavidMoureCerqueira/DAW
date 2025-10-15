@@ -108,11 +108,91 @@
 # lista=["platano", "mandarina", "papa", "perico","a"]
 # print(contar_letras(lista))
 
-a = [[1, 2], [3, 4]]
-b = a[:]
-print('a', a)
-print('b', b)
+# a = [2, [3, 4]]
+# b = list(a)
+# print('a', a)
+# print('b', b)
 
-b[0].append(5)
-print('a', a)
-print('b', b)
+# b[0] = 5
+# print('a', a)
+# print('b', b)
+
+# diccionario = {}
+# diccionario['one'] = 'uno'
+# diccionario['two'] = 'dos'
+# diccionario['three'] = 'tres'
+# dict2 = {'paco': '54', 'two': 'franco'}
+# print(diccionario)
+
+# print(list(diccionario.values()))
+# print(list(diccionario.keys()))
+# diccionario.update(dict2)
+# print(diccionario)
+# devuelto = diccionario.pop('two')
+# print(diccionario)
+# print(devuelto)
+
+# del diccionario['paco']
+# print(diccionario)
+
+
+# contadores = {'chuck': 1, 'annie': 42, 'jan': 100}
+
+# for clave,valor in contadores.items():
+#     print(clave, valor, sep='-')
+# for valor in contadores.values():
+#     print(valor, end='-\n')
+# for key in contadores.keys():
+#     print(key, end='-\n')
+
+# def contar_frecuencia(lista: list[str]) -> dict[str, int]:
+#     frecuencia = {}
+#     for fruta in lista:
+#         if fruta not in frecuencia:
+#             frecuencia[fruta] = 1
+#         else:
+#             frecuencia[fruta] = frecuencia[fruta]+1
+#     return frecuencia
+
+
+# lista_palabras = ['mazá', 'banana', 'mazá', 'laranxa', 'banana', 'mazá']
+
+# print(contar_frecuencia(lista_palabras))
+
+# def valor_maximo(diccionario:dict[str,int])->list[str]:
+#     max=None
+#     maximos=[]
+#     for key,value in diccionario.items():
+#         if max is None or value > max:
+#             max=value
+#             maximos=[key]
+#         elif value==max:
+#             maximos.append(key)
+
+#     return maximos
+
+# diccionario = {'a': 5, 'b': 3, 'c': 5, 'd': 2}
+
+# print(valor_maximo(diccionario))
+# # Saída esperada: ['a', 'c']
+
+
+def agrupar_datos_por_valor(diccionario: dict[str, list[int]]) -> dict[int, list[str]]:
+    resultado={}
+
+    for key, values in diccionario.items():
+        for value in values:
+            if value not in resultado:
+          
+                resultado[value]=[key]
+            else:
+                
+                resultado[value].append(key)
+
+    return resultado
+
+
+diccionario = {'a': [1, 2], 'b': [2, 3], 'c': [1, 4]}
+print(agrupar_datos_por_valor(diccionario))
+# Saída esperada:
+# {1: ['a', 'c'], 2: ['a', 'b'], 3: ['b'], 4: ['c']}

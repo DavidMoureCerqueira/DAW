@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="agenda.css">
-    <script src="./agenda.js" defer ></script>
+    <script src="./agenda.js" defer></script>
     <title>Document</title>
 </head>
+
 <body>
     <!-- Parte superior donde se introduce la fecha y el nombre del evento es un grid que a partir de x tamaño se convierte en una col -->
-     <div class="formularioGlobal">
+    <div class="formularioGlobal">
         <h1>Agenda de Eventos</h1>
         <form>
             <fieldset class="añadirEvento">
-                <h2 >Añadir nuevo evento</h2>
+                <h2>Añadir nuevo evento</h2>
                 <label for="fecha">Fecha</label>
                 <input type="date" name="fecha" id="fecha">
                 <label for="nombre">Nombre del Evento:</label>
@@ -26,10 +28,10 @@
                 <h2>Próximos Eventos</h2>
                 <div class="botones">
 
-                    <button type="button">Próxima Semana</button>
-                    <button type="button">Próximo mes</button>
-                    <button type="button">Próximo año</button>
-                    <button type="button">Todos</button>
+                    <button type="button" onclick="proximaSemana()">Próxima Semana</button>
+                    <button type="button" onclick="proximoMes()">Próximo mes</button>
+                    <button type="button" onclick="proximoAño()">Próximo año</button>
+                    <button type="button" onclick="todos()">Todos</button>
                 </div>
                 <ul class="listaEventos">
                     <li>Evento 1</li>
@@ -39,6 +41,7 @@
 
             </fieldset>
         </form>
-     </div>
+    </div>
 </body>
+
 </html>

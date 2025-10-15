@@ -23,8 +23,8 @@ saludar("Arturito Paquito")
 # no hay porque tipar el parametro que da o que devuelve
 
 
-def saludar(name: str, edad):
-    print(name, edad)
+def saludar(nombre: str, edad):
+    print(nombre, edad)
 
 
 saludar("paco", 25)
@@ -84,8 +84,8 @@ def operar(a,b):
     resta=a-b
     return suma, resta
 s,r=operar(4,5)
-print("suma")   #9
-print("resta")  #-1
+print("suma",s)   #9
+print("resta",r)  #-1
 
 #Early return --> Consiste en analizar los casos malos que no quieres y se retorna el dando error.
 def dividr(a,b):
