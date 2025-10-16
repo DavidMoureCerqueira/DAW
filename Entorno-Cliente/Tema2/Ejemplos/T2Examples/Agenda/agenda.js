@@ -67,7 +67,7 @@ function pintarEventos(eventos) {
 
         // posicionEventos.innerHTML=  `<li> ${(evento.id).toLocaleDateString('gl-ES',options)}  ${evento.nombre} <button type='button' id='${evento.id}' onClick='eliminarEvento(id)'>✖️</button></li>`
 
-        posicionEventos.insertAdjacentHTML('beforeend', `<li> ${(evento.id).toLocaleDateString('gl-ES', options)}  ${evento.nombre} <button type='button' id='${evento.id}' onClick='eliminarEvento(id)'>✖️</button></li>`)
+        posicionEventos.insertAdjacentHTML('beforeend', `<li class='evento'> <div>${(evento.id).toLocaleDateString('gl-ES', options)}</div>  <div>${evento.nombre}</div> <button type='button' id='${evento.id}' onClick="eliminarEvento(id)">✖️</button></li>`)
     }
 
 }
@@ -136,4 +136,13 @@ function proximoAño() {
     }
     pintarEventos(eventosProximoAño)
 }
+
+function eliminarEvento(id){
+    let eventoSinEliminado=eventos.filter((evento)=>evento.id!=id);
+    eventos=eventoSinEliminado
+    pintarEventos(eventos)
+    
+}
+
+
 

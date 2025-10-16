@@ -61,5 +61,22 @@
 }
 .listaEventos{
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
+}
+.evento{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0.5rem;
+
+  border-left: 6px solid lightsteelblue;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px lightskyblue;
+  transition: transform scale;
+
+}
+.evento:hover{
+  background-color: beige;
 }

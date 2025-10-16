@@ -243,3 +243,30 @@ console.log(numLetras)
 reduce() reduce los valores del array a uno solo apliucando una funcion pasado como parametro a cada elemento de izquierda a derecha. El valor devuelto por la funcion se guarda en un acumulador, necesita la inicializacion de la variable suma
 
 reduceRight() hace lo mismo pero de derecha a izquierda ejemplo en T2Ex23
+
+# Funciones
+window forma parte del BOW elemento del navegador
+
+decodeURI(): decodifica, coma o seu nome indica, un URI (Uniform Resource Identifier)
+fornecido coma string substituíndo as secuencias de escape UTF-8 (excepto as
+correspondentes con: , / ? : @ & = + $ #) propias dos navegadores web polos
+caracteres correspondentes
+
+decodeURIComponent(): decodifica todo o ou parte dun URI fornecido coma string
+substituíndo as secuencias de escape UTF-8 (incluida as correspondentes con: , / ? :
+@ & = + $ #) propias dos navegadores web polos caracteres correspondentes..
+
+eval(): avalía e executa o código proporcionado como string no caso de que sexa
+código JS válido
+
+isFinite(): determina se un valor é un número finito. Polo tanto, devolve false se o
+valor é +Infinity, -Infinity ou NaN. En calquera outro caso devolve true.
+
+isNaN(): determina se un valor non é un número legal devolvendo true/false.
+
+//Number(): converte o valor dun obxecto a un número. Devolve NaN se non é válido.
+
+ parseFloat(): determina se o primeiro caracter dunha string é un número (omitindo
+espacios en branco ao principio). Nese caso colle caracteres até que atope un non
+numérico e convérteo nun número decimal. Se non atopa ningún caracter numérico
+devolve NaN.
