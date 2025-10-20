@@ -270,3 +270,12 @@ isNaN(): determina se un valor non é un número legal devolvendo true/false.
 espacios en branco ao principio). Nese caso colle caracteres até que atope un non
 numérico e convérteo nun número decimal. Se non atopa ningún caracter numérico
 devolve NaN.
+
+
+como construir funciones con constructor
+
+let novaFuncion = new Function ("a","b","return a+', '+b+'!';"); // Función
+construtor
+novaFuncion ("Chao", "xente"); // Chao, xente!
+
+el ultimo parametro es el codigo, en este caso es devolver la concatenacion de a y b
