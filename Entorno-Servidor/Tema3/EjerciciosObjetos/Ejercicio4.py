@@ -25,21 +25,28 @@ class CuentaBancaria:
     @property 
     def saldo(self): #Es un alias de _nombre
         return self._saldo
-
+    
+    @saldo.setter
+    def saldo(self, nuevo_valor):
+        if nuevo_valor>self._saldo:
+            print("La cantidad tiene que ser mayor 0")
+        else:
+            self._saldo=nuevo_valor
+            
+            
     def ingresar(self, cantidad):
         if cantidad<0:
             raise ValueError("No se puede ingresar cantidades negativas")
         
-        self._saldo+=cantidad
+        self.saldo=self.saldo+cantidad
        
     def retirar(self, cantidad):
         if cantidad<0:
-            raise ValueError("No es posible operar con importes negativos")
-        else:
-            if cantidad<self.saldo:
-                self._saldo-=cantidad
-            else:
-                print("La cantidad a retirar supera los fondos disponibles")
+            print("No es posible retirar una cantidad negativa") 
+        else: 
+            self.saldo=self.saldo-cantidad
+           
+                
     def __str__(self):
         return(f"{self._titular} tiene de saldo {self.saldo}")
             
