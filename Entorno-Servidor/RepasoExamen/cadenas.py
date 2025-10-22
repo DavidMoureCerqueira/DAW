@@ -177,22 +177,65 @@
 # # Saída esperada: ['a', 'c']
 
 
-def agrupar_datos_por_valor(diccionario: dict[str, list[int]]) -> dict[int, list[str]]:
-    resultado={}
+# def agrupar_datos_por_valor(diccionario: dict[str, list[int]]) -> dict[int, list[str]]:
+#     resultado={}
 
-    for key, values in diccionario.items():
-        for value in values:
-            if value not in resultado:
-          
-                resultado[value]=[key]
-            else:
-                
-                resultado[value].append(key)
+#     for key, values in diccionario.items():
+#         for value in values:
+#             if value not in resultado:
 
-    return resultado
+#                 resultado[value]=[key]
+#             else:
+
+#                 resultado[value].append(key)
+
+#     return resultado
 
 
-diccionario = {'a': [1, 2], 'b': [2, 3], 'c': [1, 4]}
-print(agrupar_datos_por_valor(diccionario))
+# diccionario = {'a': [1, 2], 'b': [2, 3], 'c': [1, 4]}
+# print(agrupar_datos_por_valor(diccionario))
 # Saída esperada:
 # {1: ['a', 'c'], 2: ['a', 'b'], 3: ['b'], 4: ['c']}
+
+# tupla=1,2,3
+# print(type(tupla))
+# tupla=1,3,3,2,'hola'
+# print(type(tupla))
+
+# conjunto = {1, 2, 3, 4}
+# print(conjunto)
+# conjunto.add('pene')
+# print(conjunto)
+# conjunto.add('pene')
+# print(conjunto)
+# print(conjunto[1])
+# variable = 2
+# print("Texto1", "Texto2", variable, sep=(","))
+# def printear(nombre, edad, pais):
+#     return str(f"{nombre}, tiene {edad} años y vive en {pais}")
+
+
+# print(printear('paco', pais='España', edad=25))
+
+# def funcion(x, y, *args, **kwargs):
+#     print('valor x: ', x)
+#     print('valor y: ', y)
+#     for i in args:
+#         print("*args ", i)
+#     for key, value in kwargs.items():
+#         print("**kargs: Key: ", key, "value: ", value)
+
+
+# funcion('hola', 'mundo', 'que', 'tal', 'todo', hola='mundo', manzana='paquito')
+# a = [1, 2, [3, 4]]
+# b = a[:]
+# b[2].append(5)
+# b[2] = 1
+# print(a)
+# print(b)
+try:
+    1 / 0
+except ZeroDivisionError as e:
+    raise e
+finally:
+    print("finally")
