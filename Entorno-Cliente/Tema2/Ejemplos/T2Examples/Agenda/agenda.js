@@ -5,6 +5,11 @@ const posicionLista = document.querySelector("#listaEventos")
 const posicionError = document.getElementById("error")
 const posicionEventos = document.querySelector(".listaEventos")
 
+    let fechaEventoInput = document.querySelector("#fecha");
+
+    // let nombreEventoInput = document.getElementById("nombre");
+    let nombreEventoInput = document.querySelector("#nombre");
+
 let eventos = []
 
 
@@ -18,11 +23,6 @@ const options = {
 
 
 function crearEvento() {
-
-    let fechaEventoInput = document.querySelector("#fecha");
-
-    // let nombreEventoInput = document.getElementById("nombre");
-    let nombreEventoInput = document.querySelector("#nombre");
 
     let fechaEvento = new Date(fechaEventoInput.value);
 
@@ -61,13 +61,12 @@ function crearEvento() {
 }
 
 function pintarEventos(eventos) {
-
+eventos.sort((a,b)=>a.id-b.id)
     posicionEventos.innerText = '';
     for (let evento of eventos) {
 
-        // posicionEventos.innerHTML=  `<li> ${(evento.id).toLocaleDateString('gl-ES',options)}  ${evento.nombre} <button type='button' id='${evento.id}' onClick='eliminarEvento(id)'>✖️</button></li>`
 
-        posicionEventos.insertAdjacentHTML('beforeend', `<li class='evento'> <div>${(evento.id).toLocaleDateString('gl-ES', options)}</div>  <div>${evento.nombre}</div> <button type='button' id='${evento.id}' onClick="eliminarEvento(id)">✖️</button></li>`)
+        posicionEventos.insertAdjacentHTML('beforeend', `<li class='evento'> <div>${(evento.id).toLocaleDateString('gl-ES', options)}</div>  <div>${evento.nombre}</div> <button type='button' id='${evento.id}' onClick="modificarEvento(id)">✏️</button><button type='button' id='${evento.id}' onClick="eliminarEvento(id)">✖️</button></li>`)
     }
 
 }
@@ -142,6 +141,19 @@ function eliminarEvento(id){
     eventos=eventoSinEliminado
     pintarEventos(eventos)
     
+}
+
+function modificarEvento(id){
+    let evento={}
+    for (let eventoFor of eventos){
+        if(eventoFor.id==id){
+            evento=eventoFor
+        }
+    }
+    eliminarEvento(id);
+    fechaEventoInput.value=id;
+    nombreEventoInput.value='hola'
+
 }
 
 
