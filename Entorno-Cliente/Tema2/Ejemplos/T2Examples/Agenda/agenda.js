@@ -1,4 +1,9 @@
 
+
+//Acorarse al guardar palabras con espacios utilizar trim()
+
+//Comprobar fecha una vez pasado a string
+
 //VARIABLES DEL DOM
 const posicionLista = document.querySelector("#listaEventos")
 //const posicionError = document.querySelector("#error")
@@ -32,6 +37,12 @@ function crearEvento() {
 
 
     // Validaciones
+
+    if (!fechaEventoInput.value){
+        console.log("hola")
+        return false;
+    }
+
     if (isNaN(fechaEvento.getDay()) || isNaN(fechaEvento.getMonth()) || isNaN(fechaEvento.getFullYear())) {
 
         posicionError.innerHTML = "La fecha no esta completa y por lo tanto no es válida"
@@ -144,6 +155,10 @@ function eliminarEvento(id){
 }
 
 function modificarEvento(id){
+
+
+
+
     let evento={}
     for (let eventoFor of eventos){
         if(eventoFor.id==id){
@@ -151,8 +166,11 @@ function modificarEvento(id){
         }
     }
     eliminarEvento(id);
-    fechaEventoInput.value=id;
-    nombreEventoInput.value='hola'
+    let fecha=new Date(id);
+
+  
+    fechaEventoInput.valueAsDate=fecha
+    nombreEventoInput.value=evento.nombre
 
 }
 
