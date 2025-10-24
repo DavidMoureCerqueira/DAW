@@ -200,7 +200,15 @@
 
 // numero=5
 // console.log(typeof (numero))        //number
-let numero = 'plol'
-console.log(numero)
-console.log(typeof (numero))
-console.log(isNaN('hola'))
+
+// let numero = 'plol'
+// console.log(numero)
+// console.log(typeof (numero))
+// console.log(isNaN('hola'))
+
+//  let numero=NaN
+//  console.log(numero)
+//  console.log(typeof(numero))
+
+// let random = Math.trunc(Math.random() * 11)
+// console.log(random)

@@ -1,9 +1,19 @@
 
+
+//Acorarse al guardar palabras con espacios utilizar trim()
+
+//Comprobar fecha una vez pasado a string
+
 //VARIABLES DEL DOM
 const posicionLista = document.querySelector("#listaEventos")
 //const posicionError = document.querySelector("#error")
 const posicionError = document.getElementById("error")
 const posicionEventos = document.querySelector(".listaEventos")
+
+    let fechaEventoInput = document.querySelector("#fecha");
+
+    // let nombreEventoInput = document.getElementById("nombre");
+    let nombreEventoInput = document.querySelector("#nombre");
 
 let eventos = []
 
@@ -19,11 +29,6 @@ const options = {
 
 function crearEvento() {
 
-    let fechaEventoInput = document.querySelector("#fecha");
-
-    // let nombreEventoInput = document.getElementById("nombre");
-    let nombreEventoInput = document.querySelector("#nombre");
-
     let fechaEvento = new Date(fechaEventoInput.value);
 
     let nombreEvento = nombreEventoInput.value;
@@ -32,6 +37,12 @@ function crearEvento() {
 
 
     // Validaciones
+
+    if (!fechaEventoInput.value){
+        console.log("hola")
+        return false;
+    }
+
     if (isNaN(fechaEvento.getDay()) || isNaN(fechaEvento.getMonth()) || isNaN(fechaEvento.getFullYear())) {
 
         posicionError.innerHTML = "La fecha no esta completa y por lo tanto no es válida"
@@ -61,13 +72,12 @@ function crearEvento() {
 }
 
 function pintarEventos(eventos) {
-
+eventos.sort((a,b)=>a.id-b.id)
     posicionEventos.innerText = '';
     for (let evento of eventos) {
 
-        // posicionEventos.innerHTML=  `<li> ${(evento.id).toLocaleDateString('gl-ES',options)}  ${evento.nombre} <button type='button' id='${evento.id}' onClick='eliminarEvento(id)'>✖️</button></li>`
 
-        posicionEventos.insertAdjacentHTML('beforeend', `<li class='evento'> <div>${(evento.id).toLocaleDateString('gl-ES', options)}</div>  <div>${evento.nombre}</div> <button type='button' id='${evento.id}' onClick="eliminarEvento(id)">✖️</button></li>`)
+        posicionEventos.insertAdjacentHTML('beforeend', `<li class='evento'> <div>${(evento.id).toLocaleDateString('gl-ES', options)}</div>  <div>${evento.nombre}</div> <button type='button' id='${evento.id}' onClick="modificarEvento(id)">✏️</button><button type='button' id='${evento.id}' onClick="eliminarEvento(id)">✖️</button></li>`)
     }
 
 }
@@ -142,6 +152,26 @@ function eliminarEvento(id){
     eventos=eventoSinEliminado
     pintarEventos(eventos)
     
+}
+
+function modificarEvento(id){
+
+
+
+
+    let evento={}
+    for (let eventoFor of eventos){
+        if(eventoFor.id==id){
+            evento=eventoFor
+        }
+    }
+    eliminarEvento(id);
+    let fecha=new Date(id);
+
+  
+    fechaEventoInput.valueAsDate=fecha
+    nombreEventoInput.value=evento.nombre
+
 }
 
 
