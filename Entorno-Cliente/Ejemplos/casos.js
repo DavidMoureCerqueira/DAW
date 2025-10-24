@@ -200,6 +200,7 @@
 
 // numero=5
 // console.log(typeof (numero))        //number
- let numero=NaN
- console.log(numero)
- console.log(typeof(numero))
+let numero = 'plol'
+console.log(numero)
+console.log(typeof (numero))
+console.log(isNaN('hola'))
