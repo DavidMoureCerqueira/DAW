@@ -1,8 +1,12 @@
 
-
-//Acorarse al guardar palabras con espacios utilizar trim()
+//usar focus para poder escribir otro evento despues de cualquier pintar eventos
+//Acordarse al guardar palabras con espacios utilizar trim()
 
 //Comprobar fecha una vez pasado a string
+
+/*
+Para crear fechas: let fecha=new DAte(fechaString(añomesdia+"T00:00:00"))
+*/
 
 //VARIABLES DEL DOM
 const posicionLista = document.querySelector("#listaEventos")
@@ -31,14 +35,15 @@ function crearEvento() {
 
     let fechaEvento = new Date(fechaEventoInput.value);
 
-    let nombreEvento = nombreEventoInput.value;
+    let nombreEvento = nombreEventoInput.value.trim();
 
     let fechaActual = new Date();
 
 
+
     // Validaciones
 
-    if (!fechaEventoInput.value){
+    if (!fechaEventoInput.value||!nombreEvento){
         console.log("hola")
         return false;
     }
@@ -148,23 +153,21 @@ function proximoAño() {
 }
 
 function eliminarEvento(id){
-    let eventoSinEliminado=eventos.filter((evento)=>evento.id!=id);
-    eventos=eventoSinEliminado
+    // let eventoSinEliminado
+     eventos=eventos.filter((evento)=>evento.id!=id);
+    // eventos=eventoSinEliminado
     pintarEventos(eventos)
     
 }
 
 function modificarEvento(id){
-
-
-
-
     let evento={}
     for (let eventoFor of eventos){
         if(eventoFor.id==id){
             evento=eventoFor
         }
     }
+    // let eventoAEditar=eventos.find((evento)=>evento.id==id)
     eliminarEvento(id);
     let fecha=new Date(id);
 

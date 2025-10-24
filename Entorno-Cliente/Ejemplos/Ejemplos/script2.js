@@ -109,7 +109,7 @@
 
 // let grupoTotal = [...grupo1, ...grupo2]
 // grupoTotal = [...new Set(grupoTotal)]
-// // grupoTotal = grupoTotal.filter((nombre, index, array) => array.indexOf(nombre) == index);
+// grupoTotal = grupoTotal.filter((nombre, index, array) => array.indexOf(nombre) == index);
 // console.log(grupoTotal)
 // let paco = 'paco'
 
