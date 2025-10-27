@@ -20,15 +20,6 @@ function formatearFecha(fecha) {
 
 }
 
-/*
-let evento={
-    id:new Date().valueOf();
-    fechaStr:formatearFecha(fechaEvento);
-    fechaObj:fechaEvento
-    nombre:nombre
-}
-*/
-
 function crearEvento() {
 
 
@@ -43,10 +34,12 @@ function crearEvento() {
         posicionError.innerText = "ERROR! La fecha no tiene un valor correcto"
         return false;
     }
+
     if (!nombre) {
         posicionError.innerText = "ERROR! El nombre no tiene un valor correcto"
         return false;
     }
+    
     if (fechaEvento < fechaActual) {
         posicionError.innerText = "ERROR! La fecha introducida es anterior a la actual"
         return false;
