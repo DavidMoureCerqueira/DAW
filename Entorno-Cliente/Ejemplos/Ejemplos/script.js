@@ -54,23 +54,23 @@
 // let resultado=arr.reduce((total,numero)=>total+numero,0);
 // console.log(resultado);
 
-let estudiantes = [
-    { nombre: "Ana", edad: 20, promedio: 8 },
-    { nombre: "Luis", edad: 22, promedio: 9 },
-    { nombre: "Marta", edad: 21, promedio: 7 }
-];
+// let estudiantes = [
+    //     { nombre: "Luis", edad: 22, promedio: 9 },
+    //     { nombre: "Marta", edad: 21, promedio: 7 }
+    //     { nombre: "Ana", edad: 20, promedio: 8 },
+// ];
 
-let estudiantesFiltrados = estudiantes.filter((estudiante) => estudiante.promedio > 8);
-for (const estudiante of estudiantesFiltrados) {
+// let estudiantesFiltrados = estudiantes.filter((estudiante) => estudiante.promedio > 8);
+// for (const estudiante of estudiantesFiltrados) {
 
-    console.log(estudiante);
-}
+//     console.log(estudiante);
+// }
 
-let nombres = estudiantes.map((estudiantes) => estudiantes.nombre)
-console.log(nombres)
+// let nombres = estudiantes.map((estudiantes) => estudiantes.nombre)
+// console.log(nombres)
 
-estudiantes.sort((estudiante1, estudiante2) => estudiante2.edad - estudiante1.edad)
-for (const estudiante of estudiantes) {
+// estudiantes.sort((estudiante1, estudiante2) => estudiante2.edad - estudiante1.edad)
+// for (const estudiante of estudiantes) {
 
-    console.log(estudiante);
-}
+//     console.log(estudiante);
+// }

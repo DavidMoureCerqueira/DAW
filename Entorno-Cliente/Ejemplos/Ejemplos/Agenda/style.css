@@ -1,0 +1,155 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    --color-principal: rgb(44, 44, 187);
+    --color-secundario: rgb(150, 150, 221);
+
+    --color-hover:navy;
+
+    --color-letra: whitesmoke;
+    background-color: lightblue;
+
+}
+
+.formularioGlobal {
+
+    box-shadow: 0px 0px 5px black;
+    border-radius: 1rem;
+    min-width: 25vw;
+    width: 600px;
+    padding: 2rem;
+    min-height: 50vh;
+    background-color: var(--color-letra);
+
+
+}
+
+h1,
+h2 {
+    text-align: center;
+    color: var(--color-principal)
+}
+
+.añadirEvento {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+    padding: 1rem;
+
+}
+
+.añadirEvento h2 {
+    grid-column: 1/3;
+}
+
+.añadirEvento button {
+    grid-column: 2/3
+}
+
+#error {
+    text-align: center;
+    color:red;
+    text-shadow: 0 0 2px red;
+    grid-column: 1/3
+}
+
+fieldset {
+    border-radius: 1rem;
+}
+
+.historialEventos {
+    padding: 1rem;
+
+}
+
+.botones {
+    padding-top: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+#listaEventos {
+    padding-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+
+}
+
+.evento {
+    list-style: none;
+    padding: 0.5rem;
+    border-left: 2px solid blue;
+    border-radius: 1rem;
+
+    background-color: var(--color-secundario);
+    box-shadow: 0 0 5px black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.botones-evento{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.botones-evento button{
+    border: none;
+    background: transparent;
+    cursor:pointer;
+    border-radius:1rem
+}
+.botones-evento button:hover{
+    background-color: lightgrey;
+}
+
+.botones button,.añadirEvento button {
+    border-radius: 0.5rem;
+    background-color: var(--color-principal);
+    color: var(--color-letra);
+    padding: 0.25rem;
+    cursor:pointer
+}
+.botones button:hover,.añadirEvento button{
+    background-color: var(--color-hover);
+
+}
+
+input[type='text'],input[type='date']{
+    text-align: center;
+    border-radius: 0.5rem;
+}
+
+@media (width<700px) {
+    body {
+
+        background-color: black;
+    }
+
+    .añadirEvento {
+        grid-template-columns: 1fr;
+    }
+
+    .añadirEvento h2 {
+        grid-column: 1/2;
+    }
+
+    .añadirEvento button {
+        grid-column: 1/2
+    }
+
+    #error {
+        grid-column: 1/2
+    }
+}
