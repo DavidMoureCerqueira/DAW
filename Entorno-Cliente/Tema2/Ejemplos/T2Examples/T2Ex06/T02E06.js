@@ -49,7 +49,7 @@ console.log(true); // true
 //Conversion a numeros
 console.log("Conversion a numeros");
 
-console.log("number('3414') ->", Number('3.14')); 3.14
+console.log("number('3.14') ->", Number('3.14')); 3.14
 Number(' ') //0
 Number('') //0
 Number('3.14 16')// NaN

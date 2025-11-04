@@ -146,9 +146,9 @@
 // */
 // const options = {
 //     weekday: "long",
-//     year: "numeric",
+//     year: "long",
 //     month: "long",
-//     day: "numeric"
+//     day: "long"
 // }
 // console.log(fecha.toLocaleDateString('es-ES', options))
 // /*
@@ -212,3 +212,140 @@
 
 // let random = Math.trunc(Math.random() * 11)
 // console.log(random)
+
+
+// let d = new Date();
+// let msg = "Hoxe é " + d.toLocaleDateString() + ". Son as " +
+//     d.toLocaleTimeString() + " horas.";
+
+// console.log('toString()', d.toString())
+// console.log('toLocaleString()', d.toLocaleString())
+// console.log('toUTCString()', d.toUTCString())
+// console.log('toISOString()', d.toISOString())
+// console.log('toJSON()', d.toJSON())
+// console.log(d.toJSON().split('T')[0])
+
+// options = {
+//     weekday: 'long',
+//     day: 'numeric',
+//     month: 'long',
+//     year: 'numeric'
+// }
+// console.log(d.toLocaleString('es-ES', options))
+// console.log(Number("5") + true);
+// console.log(Boolean("false"));
+// console.log(Boolean(0));
+// console.log(Number("10px"));
+// console.log(String(123) + 1);
+// console.log(+"5" + 1);
+
+// console.log(typeof +"5");
+
+
+// console.log(null || "JS" && "HTML");
+// console.log(!!"0");
+
+// if (x = 5) console.log("A");
+// else console.log("B");
+// let num = "10";
+// switch (num) {
+//     case 10: console.log("A");
+//     case "10": console.log("B");
+// }
+// // let obj = { a: 1, b: 2, c: 3 };
+// // for (let key in obj) {
+// //     console.log(key);
+// // }
+// let obj = { a: 1, b: 2 };
+// for (let val of Object.values(obj)) {
+//     console.log(val);
+// }
+
+
+// let texto = "JS";
+// for (let letra of texto) {
+//     console.log(letra);
+// }
+
+// let fecha = new Date("2025-11-03");
+// console.log(fecha.getDate());
+// let txt = "JavaScript";
+// console.log(txt.slice(4, 10));
+// console.log(isNaN("hola"));
+// console.log(Number.isNaN("hola"));
+// console.log((10).toString(3));
+// let arr = [10, 20, 30]
+// delete arr[1]
+// console.log(arr.length)
+// console.log([1, 2, 3].slice(1, 2))
+// console.log([].every(x => x > 0))
+
+// function llamar(a, b, c,) {
+//     return c
+// }
+// console.log(isNaN("123"))
+
+// console.log(isFinite(1 / 0))
+
+
+// function contadorFunction() {
+//     this.valor = 0;
+//     setInterval(function () {
+//         this.valor++;
+//         console.log("Valor (function): " + this.valor);
+//     }, 1000);
+// }
+//this funciona en funcion de flecha y en function no
+// function contadorArrow() {
+//     this.valor = 0;
+//     let intervalId=setInterval(() => {
+//         this.valor++;
+//         console.log("Valor (arrow): " + this.valor);
+//         if (this.valor === 3) {
+//             clearInterval(intervalId)
+//         }
+//     }, 1000)
+// }
+// contadorArrow()
+
+// function multiplicar(...numeros) { // --> Se recibe un array
+//     return numeros.reduce((resultadoFinal, numero) => (resultadoFinal * numero));
+// }
+
+// console.log(multiplicar(1, 2, 3, 4, 5, 6));
+// console.log(multiplicar([1, 2, 3, 4, 5, 6]));        //Si tiene el valor inicializado da NaN
+// console.log(multiplicar(...[1, 2, 3, 4, 5, 6])); 
+// function test() {
+//     var x = 10;
+// }
+// console.log(x); // ✅ 10  (sale del bloque)
+
+// console.log([].toString())
+
+// function crearContador() {
+//     let contador = 0;
+//     return function () {
+//         contador++;
+//         console.log(contador);
+//     };
+// }
+
+// const contar = crearContador();
+// contar();
+// contar();
+// contar();
+
+function crearContador() {
+    let contador = 0;
+    console.log('dentro', contador)
+    return function () {
+        contador++;
+        console.log(contador);
+    };
+}
+const contar = crearContador();
+contar();
+contar();
+const gola = crearContador()
+gola()
+contar();

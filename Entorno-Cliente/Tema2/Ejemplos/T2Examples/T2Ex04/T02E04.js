@@ -39,3 +39,7 @@ console.table(personaCombinada);
 
 console.log(personaCopiada);
 console.table(personaCopiada);
+
+console.log(persona1);
+console.table(persona1);
+

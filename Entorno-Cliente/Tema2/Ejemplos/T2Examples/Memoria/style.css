@@ -2,6 +2,19 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.contedor-xogo {
+  text-align: center;
+  padding: 2rem;
+  color: blue;
+}
+
+.contedor-xogo h1 {
+  padding-bottom: 1rem;
+
+
 }
 
 .taboleiro {
@@ -11,24 +24,32 @@
   height: 100%;
   row-gap: 1rem;
   column-gap: 1rem;
-  padding: 5rem 
+  padding: 5rem
 }
+
 .carta {
-  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
   border-radius: 1rem;
   text-align: center;
+  justify-content: center;
   box-shadow: 0 0 5px black;
   background-color: blue;
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 150px;
+  height: 150px;
+
 }
+
 .carta button {
-    font-size: xx-large;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    color: whitesmoke;
+  font-size: xx-large;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: whitesmoke;
 }
+
 .volteada {
   background-color: transparent;
 }

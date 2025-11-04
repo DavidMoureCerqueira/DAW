@@ -327,26 +327,29 @@ let estudiantes = [
 
 
 // ----------FORMA LARGA-------------
-let notaMedEstudiante = estudiantes.map((estudiante) => {
-    let media = ((estudiante.notas).reduce((acc, nota) => acc + nota, 0)) / estudiante.notas.length;
-    return {
-        nombre: estudiante.nombre,
-        media: media
-    }
-})
+// let notaMedEstudiante = estudiantes.map((estudiante) => {
+//     let media = ((estudiante.notas).reduce((acc, nota) => acc + nota, 0)) / estudiante.notas.length;
+//     return {
+//         nombre: estudiante.nombre,
+//         media: media
+//     }
+// })
 
-console.log(JSON.stringify(notaMedEstudiante, null, 2))
+// console.log(JSON.stringify(notaMedEstudiante, null, 2))
 
-// let notaMedEstudianteBreve = estudiantes.map((estudiante) => ({ [estudiante.nombre]: estudiante.notas.reduce((acc, nota) => acc + nota, 0) / estudiante.notas.length }))
-// console.log(JSON.stringify(notaMedEstudianteBreve, null, 2))
+// // let notaMedEstudianteBreve = estudiantes.map((estudiante) => ({ [estudiante.nombre]: estudiante.notas.reduce((acc, nota) => acc + nota, 0) / estudiante.notas.length }))
+// // console.log(JSON.stringify(notaMedEstudianteBreve, null, 2))
 
-let nombresMayor7 = notaMedEstudiante
-    .filter((estudiante) => estudiante.media >= 7)
-    .map((estudiante) => estudiante.nombre)
-console.log(nombresMayor7)
+// let nombresMayor7 = notaMedEstudiante
+//     .filter((estudiante) => estudiante.media >= 7)
+//     .map((estudiante) => estudiante.nombre)
+// console.log(nombresMayor7)
 
 
-// 3. Calcula la media general de todos los estudiantes combinando todas las notas.
+// // 3. Calcula la media general de todos los estudiantes combinando todas las notas.
 
-let media = estudiantes.reduce((acc, estudiante) => acc + (estudiante.notas.reduce((accN, nota) => accN + nota, 0)) / estudiante.notas.length, 0) / estudiantes.length
-console.log(media)
+// let media = estudiantes.reduce((acc, estudiante) => acc + (estudiante.notas.reduce((accN, nota) => accN + nota, 0)) / estudiante.notas.length, 0) / estudiantes.length
+// console.log(media)
+
+let hombre = null
+console.log(hombre.String())

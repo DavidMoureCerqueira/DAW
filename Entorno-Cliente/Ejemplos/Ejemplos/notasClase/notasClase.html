@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="notasClase.css">
+    <script src="notasClase.js" defer></script>
+    <title>Notas Clase🗒️</title>
+</head>
+
+<body>
+
+    <section class="tablero-notas">
+        <h2>Notas Alumnos🗒️</h2>
+        <div class="recoger-datos">
+            <label for="alumno">Nombre Alumno:</label>
+            <input type="text" name="alumno" id="alumno" placeholder="Alfredo">
+            <label for="nota">Nota Alumno:</label>
+            <input type="text" name="nota" id="nota" placeholder="7.5">
+        </div>
+        <button type="button" onclick="crearAlumno()">Enviar</button>
+
+
+        <div>
+            <label for="filtrar">Filtrar por nota (0 muestra todos):</label>
+            <input type="text" name="filtrar" id="filtrar" placeholder="Introduzca nota">
+            <button type="button" onclick="filtrarPorNota()">Filtrar</button>
+        </div>
+        <div id="error"></div>
+        <table id="alumnos-notas">
+            <tr>
+                <th>Alumno</th>
+                <th>Notas</th>
+                <th>Media</th>
+                <th>Modificar/Eliminar</th>
+
+            </tr>
+            <tr>
+                <td>Paco</td>
+                <td>6,7,8,9,10</td>
+                <td> 8</td>
+            </tr>
+        
+        </table>
+    </section>
+</body>
+
+</html>

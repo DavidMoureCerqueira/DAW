@@ -29,6 +29,6 @@ try {
 } catch (error) {
     console.log(error.name);
     console.log(error.message);
-}finally{
+} finally {
     console.log("Fin del try-catch");
 }

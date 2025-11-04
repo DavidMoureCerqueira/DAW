@@ -96,9 +96,9 @@ function voltearCarta(indice) {
         renderizarTaboleiro()
     }
     if (cartasViradas.length==2){
-
+        renderizarTaboleiro()
         actualizarJugadas()
-        setTimeout(comprobarParella(),900);
+        setTimeout(comprobarParella,900);
 
         
     }
@@ -107,7 +107,7 @@ function voltearCarta(indice) {
 // Función para comprobar se as cartas volteadas son unha parella
 function comprobarParella() {
     
-    if(cartasViradas[0].carta==cartasViradas[1].carta && cartasVirada[0].id !=cartasViradas[1].id){
+    if(cartasViradas[0].carta==cartasViradas[1].carta && cartasViradas[0].id !=cartasViradas[1].id){
         cartasViradas[0].encontrada=true;
         cartasViradas[1].encontrada=true;
         paresAtopados++;
@@ -121,8 +121,19 @@ function comprobarParella() {
         }
     });
     cartasViradas=[]
-    posicionMensaje.innerText=`Has encontrado ${paresAtopados}`
+    if(paresAtopados>=1){
+
+        posicionMensaje.innerText=`Has encontrado ${paresAtopados}`
+    }else{
+        posicionMensaje.innerText='Intentalo de nuevo'
+    }
+
     renderizarTaboleiro()
+
+    if(paresAtopados==8){
+        window.alert(`Enhorabuena, HAS GANADO EN ${xogadas} movimientos.`)
+        posicionMensaje.innerText=`Enhorabuena, HAS GANADO EN ${xogadas} movimientos.`
+    }
 }
 
 function actualizarJugadas(){
