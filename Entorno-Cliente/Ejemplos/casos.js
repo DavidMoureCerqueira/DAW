@@ -335,17 +335,86 @@
 // contar();
 // contar();
 
-function crearContador() {
-    let contador = 0;
-    console.log('dentro', contador)
-    return function () {
-        contador++;
-        console.log(contador);
-    };
-}
-const contar = crearContador();
-contar();
-contar();
-const gola = crearContador()
-gola()
-contar();
+// function crearContador() {
+//     let contador = 0;
+//     console.log('dentro', contador)
+//     return function () {
+//         contador++;
+//         console.log(contador);
+//     };
+// }
+// const contar = crearContador();
+// contar();
+// contar();
+// const gola = crearContador()
+// gola()
+// contar();
+
+//  let resultado = 3 + 4 * 2 / (1 - 5) ** 2 ** 3;
+//  console.log(resultado)
+// console.log('5' > 4)
+// console.log(typeof undefined)
+// console.log(Number(null))
+// let texto = "Allen Carr"
+// console.log(texto.substring(3, -20)); // en Ca
+// console.log(texto.slice(3, -1)); // en C
+// console.log(texto)
+
+// let fecha = new Date()
+// console.log(fecha.toISOString().split('T')[0])
+
+// let fechaSTR = fecha.toLocaleString('es-ES', { weekday: 'short', year: 'numeric', day: 'numeric', month: 'numeric' })
+// console.log(fechaSTR)
+
+// let idades = [40, 17, 24];
+// let resultado = idades.splice(1); // [24]
+// console.log(idades); // [40, 17, 40, 85
+
+// let palabras = 'hola mundo'
+// console.log(palabras.replace(/o/g, 'paco'))
+// console.log(palabras)
+
+// let idades = [40, 17, 85, 24];
+// let resultado = idades.keys(); // Array Iterator object
+// for (let i of resultado) { console.log(i, idades[i]); }
+
+// let idades = [40,  85, 17,24];
+// let resultado = idades.findIndex(eMenor); // 1
+// function eMenor(idade) { return idade < 18; }
+// console.log(resultado)
+
+// const persona = {
+//   nombre: "Laura",
+//   saludar(){
+//     const hola=()=>console.log(`Hola, soy ${this.nombre}`);
+//     hola()
+//   }
+// };
+
+// persona.saludar(); // 
+
+// function demo(a, b, ...rest) {
+//     console.log(arguments[3]);
+//     console.log(rest);
+// }
+
+// demo(1, 2, 3, 4);
+
+// function hola() {
+//     let x = 2
+// }
+// function hola() {
+//     let x = 1
+// }
+// let resu = hola()
+// console.log(resu)
+
+// let fecha = new Date();
+// fecha.setHours(0, 0, 0, 0);
+// console.log(fecha.toString())
+
+const arr = [1, 2, ]
+const arr2 = [...arr]
+arr2.push('PATATA')
+console.log(arr2)
+console.log(arr)

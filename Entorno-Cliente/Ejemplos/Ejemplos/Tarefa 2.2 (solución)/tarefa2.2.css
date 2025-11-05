@@ -1,0 +1,89 @@
+/* CORPO */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* CABECEIRA */
+header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Título AXENDA DE CONTACTOS */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+/* VISTA XERAL AXENDA (formulario e listaxe): contedor grid con dúas columnas */
+.vista-axenda {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    padding: 0 50px;
+    margin-bottom: 30px;
+}
+
+/* FORMULARIO */
+#formulario-seccion {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contedor do formulario con dúas columnas grid */
+#formulario-contactos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+/* Estendemos os elementos de tipo label, input e textarea ao longo das dúas columnas grid do formulario */
+label, input, textarea {
+    grid-column: 1 / span 4;
+    width: 100%;
+}
+
+/* Situamos os botóns cada un nunha columna do grid */
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Estilos para cando se pase o rato por riba do botón */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* LISTAXE DE CONTACTOS */
+#listaxe-seccion {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Separamos os contidos da listaxe dos seus límites */
+#listaxe-contactos {
+    margin-top: 10px;
+}
+
+/* Posicionamos cada div correspondente a cada contacto */
+.contacto {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+/* Mellorar a lexibilidade do texto */
+body, input, textarea {
+    line-height: 1.6;
+}

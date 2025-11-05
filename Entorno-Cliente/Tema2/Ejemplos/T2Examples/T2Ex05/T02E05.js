@@ -29,6 +29,7 @@ let arr = [1, 2, 3];
 let index = 1;
 let valor = arr[++index];
 console.log(valor)                         //3 ya que el array empieza a contar en 0, asi que al utilizar index ++1=2 es la posicion del numero 3
-valor = arr[index++];                      //2 Porque no suma despues de que toma el valor, el index incrementaria a 2, pero no aplicaria aqui
+valor = arr[index++];    
+console.log(valor)                  //2 Porque no suma despues de que toma el valor, el index incrementaria a 2, pero no aplicaria aqui
 
 
