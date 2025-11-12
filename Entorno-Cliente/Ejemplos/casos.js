@@ -413,8 +413,18 @@
 // fecha.setHours(0, 0, 0, 0);
 // console.log(fecha.toString())
 
-const arr = [1, 2, ]
-const arr2 = [...arr]
-arr2.push('PATATA')
-console.log(arr2)
-console.log(arr)
+// const arr = [1, 2, ]
+// const arr2 = [...arr]
+// arr2.push('PATATA')
+// console.log(arr2)
+// console.log(arr)
+
+// let array=[]
+// let paco=''
+// paco.localeCompare()
+// array.sort((a,b)=>a.fecha.valueOf().localeCompare(b.toLowerCase()))
+let numeros = [3, -5, 2, 0, -1, 4, -3];
+
+numeros.sort((a, b) => a - b); // Orden ascendente
+
+console.log(numeros);
