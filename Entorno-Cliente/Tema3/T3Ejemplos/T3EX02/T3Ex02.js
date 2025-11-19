@@ -9,8 +9,7 @@ parrafos.forEach(parrafo => {
     console.log('contenido de los parrafos:',parrafo.textContent)
     
 });
-console.log('texto del titulo:',titulo.textContent)
-console.log()
+
 boton.addEventListener('click',()=>{
     const titulo=document.getElementById('titulo')
     let tituloNuevo=prompt('Introduce un nuevo titulo')
