@@ -17,6 +17,8 @@ function enseñarNombre(){
     let localS=localStorage.getItem('nombre');
     if(localS){
         insertar+=`<p><strong>Nombre guardado:</strong> ${localStorage.getItem('nombre')}</p>`
+    }else{
+        insertar+='<p>No hay nombres guardados</p>'
     }
     informacion.innerHTML=insertar
 }

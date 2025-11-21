@@ -1,0 +1,100 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contedor-principal{
+    
+    border-radius: 2rem;
+    min-width:25vw;
+    min-height:45%;
+    background-color: white;
+    box-shadow: 0px 5px 5px black;
+    padding: 2rem;
+    color:rgb(69, 69, 235);
+    text-align: center;
+}
+
+
+.formulario-tarefa{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1rem;
+    align-items: center;
+    height: 80%;
+    padding: 2rem;
+ 
+
+}
+
+.formulario-tarefa button, input[type='text']{
+    padding: 1em;
+    border-radius: 1em;
+    
+}
+
+.formulario-tarefa button{
+    background-color: rgb(69, 69, 235);
+    color: white;
+
+}
+
+
+#lista-tarefas{
+
+    min-height: 20vh;
+    display:flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  
+
+}
+
+.elemento-tarefa{
+    list-style-type: none;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: black;
+  
+}
+
+.contedor-btns{
+   display: flex;
+   flex-direction: row;
+   gap:1rem 
+}
+
+.btn-completar, .btn-eliminar{
+    background-color: transparent;
+    border:none;
+    color:black;
+    cursor:pointer;
+}
+
+/* .btn-eliminar{} */
+
+.btn-completar:hover, .btn-eliminar:hover{
+    background-color: rgb(69, 69, 235);
+    border-radius: 0.2rem;
+    
+}
+.completada{
+    background-color: rgb(161, 184, 184); 
+    color:darkcyan;
+    text-decoration: line-through;
+}
