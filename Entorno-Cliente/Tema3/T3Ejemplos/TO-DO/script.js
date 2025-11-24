@@ -60,7 +60,7 @@ function completarTarefa(nombre) {
             break;
         }
     }
-
+//  localStorage.setItem(textoTarefa,!(estadoActualStr==='true)) Para cambiar si es true que lo ponga false!!!!
     if (tareaCompletada.terminada == false) {
 
         tareaCompletada.terminada = true;
