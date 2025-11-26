@@ -19,6 +19,7 @@ document.getElementById('crear-base').addEventListener('click', () => {
     //Hay dos formas de hacer con el evento.target.result y con solicitud.result
     solicitud.onsuccess = (evento) => {
         db = evento.target.result
+        
         console.log('APERTURA', db)
         info.innerHTML = "Base de datos abierta correctamente"
 
@@ -41,6 +42,8 @@ document.getElementById('crear-base').addEventListener('click', () => {
             info.innerHTML("Almacen videojuegos ya existe")
         }
     }
+    // Es como un eventListener('onerror')
+    // Antes va 
     solicitud.onerror = () => {
         console.error('No se puedo abrir la base de datos')
     }

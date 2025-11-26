@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="agenda.css">
-    <script src="./agenda.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
     <title>Document</title>
 </head>
 
@@ -28,17 +27,15 @@
                 <h2>Próximos Eventos</h2>
                 <div class="botones">
 
-                    <button type="button" onclick="proximaSemana()">Próxima Semana</button>
-                    <button type="button" onclick="proximoMes()">Próximo mes</button>
-                    <button type="button" onclick="proximoAño()">Próximo año</button>
-                    <button type="button" onclick="todos()">Todos</button>
+                    <button type="button" onclick="filtrarPor('semana')">Próxima Semana</button>
+                    <button type="button" onclick="filtrarPor('mes')">Próximo mes</button>
+                    <button type="button" onclick="filtrarPor('año')">Próximo año</button>
+                    <button type="button" onclick="filtrarPor('todo')">Todos</button>
                 </div>
-                <ul class="listaEventos">
-                    <li class="evento">Evento 2</li>
+                <ul id="listaEventos">
+                    <li class="evento">Evento 2<div class="botones-evento"><button>sdf</button> <button>sdf</button></div></li>
                     <li class="evento">Evento 1</li>
                 </ul>
-
-
             </fieldset>
         </form>
     </div>
