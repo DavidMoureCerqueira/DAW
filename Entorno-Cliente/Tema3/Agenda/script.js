@@ -51,10 +51,10 @@ function crearEvento() {
         return false;
     }
 
-    if (listadoEventos.some((evento) => evento.fechaStr == formatearFecha(fechaEvento))) {
-        posicionError.innerText = "ERROR! Ya hay un evento con esa fecha"
-        return false;
-    }
+    // if (listadoEventos.some((evento) => evento.fechaStr == formatearFecha(fechaEvento))) {
+    //     posicionError.innerText = "ERROR! Ya hay un evento con esa fecha"
+    //     return false;
+    // }
 
 
     /*------Creacion objeto------------ */
@@ -69,12 +69,12 @@ function crearEvento() {
 
     const transaccion = db.transaction(['Eventos'], 'readwrite')
     const almacenar = transaccion.objectStore('Eventos')
-    almacenar.add(evento)
-    const solicitud = almacenar.getAll()
-    solicitud.onsuccess = () => {
-        renderizarEventos(solicitud.result)
+    
+    const solicitudAlmacenar = almacenar.add(evento)
+    solicitudAlmacenar.onsuccess = () => {
+        renderizarEventos(listadoEventos)
     }
-    solicitud.onerror = () => {
+    solicitudAlmacenar.onerror = () => {
         console.error('Error en la lectura de la base de datos')
         alert('Error en la lectura de la base de datos')
         return false
@@ -96,7 +96,7 @@ function renderizarEventos(eventos) {
 
     let htmlAInsertar = ''
     eventos.forEach(evento => {
-        htmlAInsertar += `<li class='evento'><div>${evento.fechaStr}</div> <div>${evento.nombre}</div>`
+        htmlAInsertar += `<li class='evento' id='${evento.id}' ><div>${evento.fechaStr}</div> <div>${evento.nombre}</div>`
         htmlAInsertar += `<div class='botones-evento'> <button type='button' id='${evento.id}' onclick='modificarEvento(id)'>✏️</button>`
         htmlAInsertar += `<button type='button' id='${evento.id}' onclick='eliminarEvento(id)'>✖️</button></div>`
         htmlAInsertar += '</li>'
@@ -129,13 +129,28 @@ function filtrarPor(tipo) {
             break;
 
         case 'todo':
-            renderizarEventos(listadoEventos)
-            return false;
+           
             break;
 
         default:
+             renderizarEventos(listadoEventos)
+            return false;
             break;
     }
+const rangoFiltro=IDBKeyRange.bound(hoy,fechaObjetivo,false,true)
+const tx=db.transaction(['Eventos'],'readonly')
+const store=tx.objectStore('Eventos')
+const index=store.index('fechaObjIndice')
+const solicitud=index.openCursor(rangoFiltro)
+
+solicitud.onsuccess=()=>{
+    const cursor=solicitud.result
+    if(cursor){
+        // eventosFiltrados.push(cursor.value)
+        //cursor.continue()
+    }
+}
+
     let eventosAImprimir = listadoEventos.filter((evento) => {
         if (evento.fechaObj.valueOf() > hoy.valueOf() && evento.fechaObj.valueOf() < fechaObjetivo.valueOf()) {
             return evento
@@ -145,18 +160,61 @@ function filtrarPor(tipo) {
     renderizarEventos(eventosAImprimir)
 }
 
-function eliminarEvento(id) {
+function eliminarEvento(idString) {
 
-    listadoEventos = listadoEventos.filter((evento) => evento.id != id);
-    renderizarEventos(listadoEventos);
+    if(!db){
+        alert('La base de datos esta cerrada')
+        return false
+    }
+    if(!idString || isNaN(idString)){
+        alert('No ha introducido un carácter válido o esta vacío')
+    }
+    let id=Number(idString)
+    const transaccion=db.transaction(['Eventos'],'readwrite')
+    const almacenEventos=transaccion.objectStore('Eventos')
+    const solicitudEliminar=almacenEventos.delete(id)
+    solicitudEliminar.onsuccess=()=>{
+        
+        listadoEventos = listadoEventos.filter((evento) => evento.id != id);
+        renderizarEventos(listadoEventos);
+    }
+    solicitudEliminar.onerror=()=>{
+        alert('Ha habido un error en la eliminación.')
+    }
+
 
 
 }
-function modificarEvento(id) {
-    let evento = listadoEventos.find((evento) => evento.id == id);
-    posicionFecha.valueAsDate = evento.fechaObj;
-    posicionNombre.value = evento.nombre
-    eliminarEvento(id);
+function modificarEvento(idString) {
+
+    //Utilizar un paso intermedio para poder hacer la conversion cambiando el texto al boton etc...
+
+    if(!db){
+        alert('La base de datos está cerrada')
+        return false
+    }
+    if(!idString || isNaN(idString)){
+        alert('No ha introducido un carácter válido o está vacío')
+        return false
+    }
+    let id=Number(idString)
+
+    const transaccion=db.transaction(['Eventos'],'readwrite')
+    const almacen=transaccion.objectStore('Eventos')
+    const solicitudRecogerID=almacen.get(id)
+    solicitudRecogerID.onsuccess=()=>{
+        
+        let evento = listadoEventos.find((evento) => evento.id == id);
+        posicionFecha.valueAsDate = evento.fechaObj;
+        posicionNombre.value = evento.nombre
+        eliminarEvento(id);
+    }
+    solicitudRecogerID.onerror=()=>{
+        alert('No ha sido posible modificar el evento')
+    }
+
+
+
 
 }
 
@@ -169,6 +227,17 @@ function crearBaseDatos() {
     }
     solicitud.onsuccess = () => {
         db = solicitud.result
+        const transaccion=db.transaction(['Eventos'],'readonly')
+        const almacenDatos=transaccion.objectStore('Eventos')
+        const solicitudLectura=almacenDatos.getAll()
+        solicitudLectura.onsuccess=()=>{
+            listadoEventos=solicitudLectura.result
+            renderizarEventos(listadoEventos)
+        }
+        solicitudLectura.onerror=()=>{
+            console.log('No ha sido posible leer la base de datos')
+        }
+
         console.log('APERTURA', db)
     }
     solicitud.onupgradeneeded = () => {
@@ -176,7 +245,7 @@ function crearBaseDatos() {
         if (!db.objectStoreNames.contains("Eventos")) {
 
             const almacenEventos = db.createObjectStore('Eventos', { keyPath: 'id', autoIncrement: true })
-            almacenEventos.createIndex('nombreIndice', 'nombre', { unique: false })
+            almacenEventos.createIndex('fechaObjIndice', 'fechaObj', { unique: false })
         }
     }
 }
