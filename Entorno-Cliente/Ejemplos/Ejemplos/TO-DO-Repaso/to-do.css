@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color:aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:root{
+    --color-principal:red;
+    --color-secundario:rgba(255, 0, 0,0.5);
+}
+
+.contedor-principal {
+    box-shadow: 0 0 3px black;
+    min-height: 400px;
+    min-width: 350px;
+    width: 30vw;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+.formulario-tarefa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+}
+.formulario-tarefa button{
+    background-color: var(--color-principal);
+    color: white;
+    cursor: pointer;
+
+}
+.formulario-tarefa button:hover{
+    background-color: var(--color-secundario);
+}
+
+.formulario-tarefa button,.formulario-tarefa input{
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+
+#lista-tarefas {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+
+.elemento-tarefa {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 2px 2px black;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    border-left: 5px solid var(--color-secundario);
+}
+
+.contedor-btns {
+    display: flex;
+    gap: 0.5rem;
+    
+}
+
+.btn-completar,
+.btn-eliminar {
+    border: none;
+    background-color: transparent;
+    
+}
+.btn-completar:hover,
+.btn-eliminar:hover{
+    background-color: lightblue;
+    border-radius: 1rem;
+}
+
+
+
+.completada span {
+    color: gray;
+    text-decoration: line-through;
+}
