@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Parte superior donde se introduce la fecha y el nombre del evento es un grid que a partir de x tamaño se convierte en una col -->
+    <div class="formularioGlobal">
+        <h1>Agenda de Eventos</h1>
+        <form>
+            <fieldset class="añadirEvento">
+                <h2>Añadir nuevo evento</h2>
+                <label for="fecha">Fecha</label>
+                <input type="date" name="fecha" id="fecha">
+                <label for="nombre">Nombre del Evento:</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Ex:Reunión del Betis">
+                <button type=button onclick="crearEvento()">Guardar Evento</button>
+                <div id="error"></div>
+            </fieldset>
+            <br>
+            <fieldset class="historialEventos">
+                <h2>Próximos Eventos</h2>
+                <div class="botones">
+
+                    <button type="button" onclick="filtrarPor('semana')">Próxima Semana</button>
+                    <button type="button" onclick="filtrarPor('mes')">Próximo mes</button>
+                    <button type="button" onclick="filtrarPor('año')">Próximo año</button>
+                    <button type="button" onclick="filtrarPor('todo')">Todos</button>
+                </div>
+                <ul id="listaEventos">
+                    <li class="evento">Evento 2<div class="botones-evento"><button>sdf</button> <button>sdf</button></div></li>
+                    <li class="evento">Evento 1</li>
+                </ul>
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>
