@@ -138,13 +138,13 @@ function filtrarPor(tipo) {
             break;
     }
 const rangoFiltro=IDBKeyRange.bound(hoy,fechaObjetivo,false,true)
-try{
+
 
     const tx=db.transaction(['Eventos'],'readonly')
     const store=tx.objectStore('Eventos')
     const index=store.index('fechaObjIndice')
     const solicitud=index.openCursor(rangoFiltro)
-}
+
 
 solicitud.onsuccess=()=>{
     const cursor=solicitud.result
