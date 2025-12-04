@@ -1,0 +1,87 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:root {
+    --color-principal: blue;
+    --color-secundario: rgba(0, 0, 255, 0.4);
+}
+
+.contedor-principal{
+   min-height: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+   width: 80%;
+
+
+
+}
+
+.vista-axenda{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content,1fr));
+    gap:2rem;
+
+}
+h1{
+    text-align: center;
+}
+
+/* contenedor */
+#formulario-seccion ,#listaxe-seccion{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 3px black;
+    padding: 2rem;
+    border-radius: 1rem;
+    min-height: 60px;
+    height: 100%;
+    background-color: white;
+    min-width: 500px;
+
+}
+h2{
+    padding-bottom: 1rem;
+}
+#formulario-contactos{
+    display:grid;
+    grid-template-columns: repeat(4, minmax(min-content,1fr));
+    gap: 1rem;
+}
+
+label,input,textarea{
+    grid-column: 1/5;
+  
+}
+
+/* contendor */
+input{
+    padding: 0.25rem 0;    
+}
+button{
+    padding: 0.5rem 0;
+    border-radius: 1rem;
+    background-color: var(--color-principal);
+    color: white;
+    cursor:pointer;
+}
+button:hover{
+    background-color: var(--color-secundario);
+}
+
+#listaxe-contactos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}

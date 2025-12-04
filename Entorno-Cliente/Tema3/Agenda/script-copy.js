@@ -186,28 +186,32 @@ function filtrarPor(tipo) {
 
             break;
 
-        case 'todo':
-           
-            break;
-
         default:
-             renderizarEventos(listadoEventos)
+             cargarEventos()
             return false;
             break;
     }
+    let eventosFiltrados=[]
     const rangoFiltro=IDBKeyRange.bound(hoy,fechaObjetivo,true,true)
 
     const transaccion=db.transaction(['Eventos'],'readonly')
     const almacen=transaccion.objectStore('Eventos')
     const index=almacen.index('fechaObjIndice')
     const solicitud=index.openCursor(rangoFiltro)
-    let eventoFiltrados=[]
     solicitud.onsuccess=()=>{
         let cursor=solicitud.result
+        
         if(cursor){
-            eventoFiltrados.push(cursor.value)
+            eventosFiltrados.push(cursor.value)
+            console.log(eventosFiltrados)
             cursor.continue()
+            renderizarEventos(eventosFiltrados)
+        }else{
+            console.log('Ya no hay más eventos')
         }
+    }
+    solicitud.onerror=()=>{
+        console.log('Error recuperando eventos filtrados')
     }
 
 }
