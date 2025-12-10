@@ -10,7 +10,7 @@ servidorWS.on("connection", socketServidor => {
         // Recibimos a mensaxe do cliente.
         console.log("O cliente enviou a seguinte mensaxe: " + mensaxe)
         // Enviamos unha mensaxe ao cliente.
-        socketServidor.send("Ola, Cliente!");
+        socketServidor.send("ECO HORA: "+new Date().toISOString().split('T')[1].replace('Z', '').split('.')[0]+" Ola, Cliente!");
     });
     // Nesta liña indicamos o código a executar cando a conexión pecha dende o lado do cliente.
         socketServidor.on("close", () => {
