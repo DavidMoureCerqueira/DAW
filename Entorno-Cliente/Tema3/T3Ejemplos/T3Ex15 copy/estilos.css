@@ -33,3 +33,12 @@
         .desconectado {
             color: #dc3545;
         }
+        .cliente{
+            color: #28a745;
+        }
+        .servidor{
+            color: blueviolet;
+        }
+        .informacion{
+            color: #dc3545;
+        }
