@@ -9,14 +9,6 @@ function facerTarefa(nombre) {
     })
 }
 
-
-
-
-
-
-
-
-
 facerTarefa("Tarefa 1")
     .then((resultado1) => {
         console.log(resultado1);
