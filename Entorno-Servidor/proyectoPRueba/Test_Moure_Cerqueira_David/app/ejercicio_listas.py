@@ -20,6 +20,3 @@ def contar_lonxitudes(lista):
     for palabra in lista:
         lista_lonxitudes.append(len(palabra))
     return lista_lonxitudes
-
-def contar_lonxitudes(lista):
-    return [len(palabra) for palabra in lista]

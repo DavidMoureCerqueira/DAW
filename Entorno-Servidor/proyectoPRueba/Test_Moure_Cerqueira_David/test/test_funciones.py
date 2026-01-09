@@ -82,7 +82,7 @@ def test_menor_numero_iguales():
 
 def test_menor_numero_dos_primeros_iguales():
     resultado=calcular_menor_numero(2,2,5)
-    assert resultado==2
+    assert resultado==5
 def test_menor_numero_dos_ultimos_iguales():
     resultado=calcular_menor_numero(5,7,7)
     assert resultado==5

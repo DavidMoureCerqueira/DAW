@@ -52,6 +52,10 @@ def test_contar_longitudes_palabras_iguales():
     resultado=contar_lonxitudes(['almendra','almendra', 'almendra'])
     assert resultado==[8,8,8]
     
+def test_contar_longitudes_palabras_iguales_PRUEBA():
+    resultado=contar_lonxitudes(['almendraa','almendra', 'almendra'])
+    assert resultado==[9,8,8]
+    
 def test_contar_longitudes_vacio():
     resultado=contar_lonxitudes([])
     assert resultado==[]
