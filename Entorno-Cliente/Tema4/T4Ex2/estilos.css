@@ -1,0 +1,64 @@
+.caixa {
+    padding: 30px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+#avo { background-color: #ffcccc; margin: 20px; }
+#pai { background-color: #ccffcc; }
+#fillo { background-color: #ccccff; border-style: dashed; }
+
+h1, p { font-family: sans-serif; text-align: center; }
+
+
+ul { 
+    list-style: none; 
+    padding: 0; 
+    max-width: 400px; 
+    background: white; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+li { 
+    padding: 10px 15px; 
+    border-bottom: 1px solid #eee; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+li:last-child { border-bottom: none; }
+
+li div {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-engadir {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-engadir:hover { 
+    background-color: #45a049; 
+}
+
+.btn-eliminar { 
+    background-color: #ff4d4d; 
+    color: white; 
+    border: none; 
+    padding: 5px 10px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+
+.btn-eliminar:hover { background-color: #cc0000; }
