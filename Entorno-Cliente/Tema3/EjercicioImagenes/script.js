@@ -47,29 +47,29 @@ function mudarImaxe(idImaxe) {
 
     imagenPrincipal.setAttribute('src', 'imaxes/' + idImaxe);
     const state = { 
-        foto: imagen
+        foto: idImaxe
      }
     const url = "http://127.0.0.1:5500/Entorno-Cliente/Tema3/EjercicioImagenes/t03t01.html";
     history.pushState(state, "", url + '?' + imagen)
-    /*
-        imagenPrincipal.src=`imaxes/${imagen}`
-        history.pushState({
-        imaxe:idImaxe,url:`imaxe/${idImaxe}`
-        },
-        `Imaxe ${idImaxe}`,`?imaxe=${idImaxe}`);
-        urlActualDisplay.text=Actualizo el display
     
-    */
-   /*
-   window.addEventListener('popstate',(evento)=>{
-    if(evento.state && evento.state.imaxe){
-        imaxePrincipal.src=evento.state.url;
-        urlActualDisplay.textContent=location.href;
-        console.log(`[HISTORY]`)
-    }else if(location.search==""){
-    mudarImaxe('i1.png')}
-    })
-   */
+//         imagenPrincipal.src=`imaxes/${imagen}`
+//         history.pushState({
+//         imaxe:idImaxe,url:`imaxe/${idImaxe}`
+//         },
+//         `Imaxe ${idImaxe}`,`?imaxe=${idImaxe}`);
+//         urlActualDisplay.text=Actualizo el display
+    
+    
+   
+//    window.addEventListener('popstate',(evento)=>{
+//     if(evento.state && evento.state.imaxe){
+//         imaxePrincipal.src=evento.state.url;
+//         urlActualDisplay.textContent=location.href;
+//         console.log(`[HISTORY]`)
+//     }else if(location.search==""){
+//     mudarImaxe('i1.png')}
+//     })
+   
 }
 
 function navegarHistorial(opcion) {
