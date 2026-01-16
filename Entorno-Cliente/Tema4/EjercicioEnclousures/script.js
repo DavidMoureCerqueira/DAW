@@ -43,3 +43,5 @@ btnAñadir.addEventListener("click",(e)=>{
     crearContadorBoton(e.target)
 })
 
+// Haciendolo como lo hizo el el propio eventlistener hace el return
+

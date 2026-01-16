@@ -1,5 +1,9 @@
 function calcularEstadisticas(numeros) {
+// una funcion hija puede acceder a funciones hermanas o padres
+// una funcion padre NO PUEDE ACCEDER A PARAMETROS DE UNA FUNCION HIJA
 
+// RECORDAR QUE LET Y CONST ES AMBITO DE BLOQUE, UN IF O ASI, PERO VAR ES DE FUNCION
+// SI SUMATORIO FUESE VAR NO SE PODRIA USAR DESDE LA FUNCION PADRE, AL IGUAL QUE LET Y CONST
     function calcularMedia() {
         let paco = []
 
@@ -12,6 +16,7 @@ function calcularEstadisticas(numeros) {
         return sumatorio / numeros.length
 
     }
+   
     console.log('Media: ', calcularMedia())
 
     function calcularMaximo() {
