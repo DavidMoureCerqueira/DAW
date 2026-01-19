@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="./script.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Es todo reactivo, y se puede eliminar, se utiliza localstorage para guardar, hay una variable CARRIÑO donde mete todo el json -->
+     <!-- clases utilizadas: itemCarro, carro, producto-->
+      <!-- funciones:  calcular precio iva dentro de productos, itemcarriño calcular subtotal, y actualizarcantidad, carriño añadir item, guardar carriño, eliminar item calcular total-->
+
+    <header>
+        <h1>Tienda POO (Simulación E-commerce)</h1>
+    </header>
+    <main class="contedor-principal">
+        <section class="contedor-productos">
+            <h2>Productos Disponibles</h2>
+            <ul id="lista-productos">
+          
+
+            </ul>
+        </section>
+        <section class="contedor-carriño">
+            <h2>O teu Carriño</h2>
+            <ul id="lista-carriño">
+
+            </ul>
+            <div id="resumo-carriño" class="resumo-carriño"></div>
+        </section>
+    </main>
+</body>
+</html>

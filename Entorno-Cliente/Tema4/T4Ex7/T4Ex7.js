@@ -18,3 +18,5 @@ persona.saludar.call(otraPersona)
 const datos = { nombre: "Lucas", edad: 21 };
 // El apply funciona como call que se utiliza sobre un objeto y  una descomposicion de un objeto
 persona.saludar.apply(datos)
+
+// persona.saludar.apply(otraPersona,datos);  NECESITA QUE EL SALUDAR RECIBIESE PARAMETROS PARA QUE FUNCIONASE
