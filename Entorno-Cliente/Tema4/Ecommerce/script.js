@@ -22,7 +22,7 @@ function renderizarProductos() {
     productosDisponibles.forEach(producto => {
 
         const li = document.createElement("li")
-        li.id = producto._id
+        li.id = Number(producto._id)
         const spanEmoji = document.createElement("span")
         spanEmoji.textContent = producto._emoji
         const spanNombre = document.createElement("span")
