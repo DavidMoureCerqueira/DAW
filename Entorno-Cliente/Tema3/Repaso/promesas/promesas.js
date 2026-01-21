@@ -182,46 +182,85 @@ const promesa = (nombre) => {
 
 // Ejercicio realizar tareas y con metodos de promesas saber cual podra hacerse y cual no
 
-function obtenerDatos(tiempoEspera) {
+// function obtenerDatos(tiempoEspera) {
 
-    return new Promise((resolve) => {
-        console.log("Tiempo de espera del resolve es de:", tiempoEspera, "segundos")
+//     return new Promise((resolve) => {
+//         console.log("Tiempo de espera del resolve es de:", tiempoEspera, "segundos")
+//         setTimeout(() => {
+//             resolve(`Promesa realizada en: ${tiempoEspera} segundos`)
+//         }, tiempoEspera * 1000)
+//     })
+// }
+
+// function limitarTiempo(promesa, tiempoLimite) {
+//     let timeout = new Promise((_, reject) => {
+//         console.log("Tiempo limite del reject es de:", tiempoLimite, "segundos")
+
+//         setTimeout(() => {
+//             reject("La promesa tardó demasido")
+//         }, tiempoLimite * 1000)
+//     })
+//     return Promise.race([promesa, timeout])
+// }
+
+// function calcularTiempo(min, max) {
+//     return Math.floor(Math.random() * (max - min + 1) + min)
+// }
+
+// async function ejectutarTareas() {
+//     console.log("Iniciando tareas...")
+
+//     try {
+//         const resultado1 = await limitarTiempo(obtenerDatos(calcularTiempo(2, 4)), calcularTiempo(5, 6))
+//         console.log("Paso 1:", resultado1)
+//         const resultado2 = await limitarTiempo(obtenerDatos(calcularTiempo(7, 7)), calcularTiempo(5, 6))
+//         console.log("Paso 2:", resultado2)
+//         const resultado3 = await limitarTiempo(obtenerDatos(calcularTiempo(2, 4)), calcularTiempo(5, 6))
+//         console.log("Paso 3:", resultado2)
+
+//     } catch (error) {
+//         console.log("Error:", error)
+//     }
+// }
+
+// ejectutarTareas()
+// console.log("Continuacion de codigo")
+
+// Ejercicio de promise al con async
+
+//Primero una funcion que devuelva una promesa
+
+function hacerTarea(nombre, tiempo) {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(`Promesa realizada en: ${tiempoEspera} segundos`)
-        }, tiempoEspera * 1000)
+            let exito = Math.floor(Math.random() * 10) + 1
+            if (exito) {
+                resolve(`Se esta realizando la tarea con nombre: ${nombre}`)
+            } else {
+                reject(`Ha fallado al tarea con nombre: ${nombre}`)
+            }
+        }, tiempo * 1000)
     })
 }
 
-function limitarTiempo(promesa, tiempoLimite) {
-    let timeout = new Promise((_, reject) => {
-        console.log("Tiempo limite del reject es de:", tiempoLimite, "segundos")
-
-        setTimeout(() => {
-            reject("La promesa tardó demasido")
-        }, tiempoLimite * 1000)
-    })
-    return Promise.race([promesa, timeout])
-}
-
-function calcularTiempo(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
-async function ejectutarTareas() {
-    console.log("Iniciando tareas...")
-
+async function realizarTareas() {
+    console.log("Iniciando tareas: ")
     try {
-        const resultado1 = await limitarTiempo(obtenerDatos(calcularTiempo(2, 4)), calcularTiempo(5, 6))
-        console.log("Paso 1:", resultado1)
-        const resultado2 = await limitarTiempo(obtenerDatos(calcularTiempo(7, 7)), calcularTiempo(5, 6))
-        console.log("Paso 2:", resultado2)
-        const resultado3 = await limitarTiempo(obtenerDatos(calcularTiempo(2, 4)), calcularTiempo(5, 6))
-        console.log("Paso 3:", resultado2)
 
+        const resultados = await Promise.all([
+            hacerTarea("Tarea 1", 4),
+            hacerTarea("Tarea 2", 2),
+            hacerTarea("Tarea 3", 2),
+        ])
+        console.log("Resultados: ")
+      
+        resultados.forEach(resultado => {
+            console.log(resultado)
+
+        });
     } catch (error) {
-        console.log("Error:", error)
+        console.log("ERROR:", error)
     }
-}
 
-ejectutarTareas()
-console.log("Continuacion de codigo")
+}
+realizarTareas()

@@ -68,7 +68,7 @@ const URL = 'https://jsonplaceholder.typicode.com/users'
 // .then(resolve)
 // .catch(reject)
 // }
-// },tempoEspera *10000)
+// },tempoEspera *1000)
 // })
 
 
