@@ -1,12 +1,12 @@
 const listaProductos = document.getElementById("lista-productos")
 const listaCarro = document.getElementById("lista-carriño")
 const resumenCarrito = document.getElementById("resumo-carriño")
-const resumenCarrito = document.getElementById("resumo-carriño")
+
 
 
 const IVA = 1.21
 
-// CLASES
+
 
 // CLASES
 class Producto {
@@ -18,6 +18,7 @@ class Producto {
         this._stock = stock,
             this._descripcion = descripcion,
             this._emoji = emoji
+        this._stockMaximo = stock
     }
 }
 
@@ -55,29 +56,6 @@ class Carro {
 let productosDisponibles = []
 const carrito = new Carro()
 
-// Renderizaciones
-class Carro {
-    static descuento = 0.1
-    constructor() {
-
-        this._itemsCarrito = lecturaLocalStorage() || []
-        this._subtotal = 0
-        this._precioTotal = 0
-    }
-    calcularPrecioTotal() {
-        if (this._subtotal >= 100) {
-            this._precioTotal = this._subtotal * (1 - Carro.descuento)
-        } else {
-            this._precioTotal = this._subtotal
-        }
-
-    }
-
-}
-
-// Declaraciones para uso global
-let productosDisponibles = []
-const carrito = new Carro()
 
 // Renderizaciones
 
@@ -100,7 +78,7 @@ function renderizarProductos() {
         btnAñadir.textContent = "Añadir"
         btnAñadir.addEventListener("click", () => {
             añadirAlCarro(producto)
-            añadirAlCarro(producto)
+
         })
         // Añadir todos al li
         li.appendChild(spanEmoji)
@@ -115,8 +93,6 @@ function renderizarProductos() {
 function renderizarCarrito() {
     listaCarro.innerHTML = ""
     carrito._itemsCarrito.forEach(item => {
-    carrito._itemsCarrito.forEach(item => {
-
         const li = document.createElement("li")
         li.id = Number(item._id)
         li.classList.add("carriño-item")
@@ -197,7 +173,7 @@ function añadirAlCarro(producto) {
 
 function incrementarItemCarrito(id) {
     console.log("Aumentando la cantidad del producto con el ID:", id)
-    carrito._itemsCarrito.forEach((item) => {
+
     carrito._itemsCarrito.forEach((item) => {
         if (item._id == id) {
             item._cantidad += 1
@@ -235,12 +211,12 @@ function lecturaLocalStorage() {
     return transformacionLocalStorage(objetosCarrito)
 
 }
-function transformacionLocalStorage(objetos){
-    
-    if (objetos instanceof Array && objetos.length!=0) 
-        return objetos.map((objeto) => new ItemCarro(new Producto(objeto._id, objeto._nombre, objeto._precioUnitario,objeto._stock, objeto._descripcion, objeto._emoji), objeto._cantidad))
+function transformacionLocalStorage(objetos) {
 
-    
+    if (objetos instanceof Array && objetos.length != 0)
+        return objetos.map((objeto) => new ItemCarro(new Producto(objeto._id, objeto._nombre, objeto._precioUnitario, objeto._stock, objeto._descripcion, objeto._emoji), objeto._cantidad))
+
+
 }
 
 async function cargarProductosJSON() {
@@ -250,7 +226,7 @@ async function cargarProductosJSON() {
         console.log("Iniciando lectura del JSON")
         if (!response.ok) throw new Error("Ha habido un error en la lectura de los productos")
         const datos = await response.json()
-        console.log("Cargando los productos...")               
+        console.log("Cargando los productos...")
         productosDisponibles = datos.map((dato) => new Producto(dato.id, dato.nome, dato.prezoUnitario, dato.stock, dato.descripcion, dato.emoji))
 
     } catch (error) {
@@ -265,7 +241,12 @@ function ajusteStockConLocalStorage() {
 
     carrito._itemsCarrito.forEach((item) => {
         let productoAModificar = productosDisponibles.find((producto) => producto._id == item._id)
-        productoAModificar._stock -= item._cantidad
+            
+        if (productoAModificar._stockMaximo != productoAModificar._stock + Math.abs(item._cantidad)){
+
+            productoAModificar._stock -= item._cantidad
+        }
+
     })
 
 }
