@@ -59,11 +59,12 @@ for (let index = 1; index <= elementosAñadir; index++) {
 
 listaDinamica.addEventListener("click", (event) => {
     const elementoClickado = event.target
+    
     if (elementoClickado.classList.contains("btn-engadir")) {
         contador++
         const li=document.createElement("li")
         const liActual = elementoClickado.closest("li")
-
+        
         li.innerHTML += `
     <p>Elemento número ${contador}</p>
     <button class='btn-engadir'>Añadir</button>

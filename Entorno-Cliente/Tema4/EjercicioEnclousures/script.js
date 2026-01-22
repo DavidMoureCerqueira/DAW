@@ -34,14 +34,14 @@ const resultado=document.getElementById("resultado")
 // btnAñadir.addEventListener("click",()=>{resultado.innerHTML+="El boton de añadir se ha pulsado " + contadorGuardar()+ " veces <br>"})
 // btnEliminar.addEventListener("click",()=>{resultado.innerHTML+="El boton de eliminar se ha pulsado " + contadorCancelar()+ " veces <br>"})
 
-function crearContador(){
-    let contador=0
-    return  (boton)=>{resultado.innerHTML+=`<p>El boton ${boton.textContent} se pulsó ${++contador} veces</p>`}
-}
-const crearContadorBoton=crearContador()
-btnAñadir.addEventListener("click",(e)=>{
-    crearContadorBoton(e.target)
-})
+// function crearContador(){
+//     let contador=0
+//     return  (boton)=>{resultado.innerHTML+=`<p>El boton ${boton.textContent} se pulsó ${++contador} veces</p>`}
+// }
+// const crearContadorBoton=crearContador()
+// btnAñadir.addEventListener("click",(e)=>{
+//     crearContadorBoton(e.target)
+// })
 
 // Haciendolo como lo hizo el el propio eventlistener hace el return
 
