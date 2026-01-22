@@ -1,13 +1,7 @@
 const listaProductos = document.getElementById("lista-productos")
 const listaCarro = document.getElementById("lista-carriño")
 const resumenCarrito = document.getElementById("resumo-carriño")
-
-
-
 const IVA = 1.21
-
-
-
 // CLASES
 class Producto {
     constructor(id, nombre, precioUnitario, stock, descripcion = "", emoji = "") {
@@ -39,19 +33,31 @@ class Carro {
 
         this._itemsCarrito = lecturaLocalStorage() || []
         this._subtotal = 0
+        this._descuento = 0
         this._precioTotal = 0
+    }
+    calcularDescuento() {
+        this._descuento = (this._subtotal * Carro.descuento).toFixed(2)
+        if(this._descuento>100){
+            this._descuento=100
+        }
+    }
+    calcularSubtotal() {
+        this._subtotal = (this._itemsCarrito.reduce((acc, item) => {
+            console.log("Cantidad del acumulador:", acc)
+            console.log("Precio del item: ", item._cantidad)
+            acc += item._cantidad * item._precioIVA
+            return acc
+        }, 0)).toFixed(2)
+
     }
     calcularPrecioTotal() {
         if (this._subtotal >= 100) {
-            this._precioTotal = this._subtotal * (1 - Carro.descuento)
-        } else {
-            this._precioTotal = this._subtotal
+            this.calcularDescuento()
         }
-
+        this._precioTotal = (this._subtotal - this._descuento).toFixed(2)
     }
-
 }
-
 // Declaraciones para uso global
 let productosDisponibles = []
 const carrito = new Carro()
@@ -108,19 +114,15 @@ function renderizarCarrito() {
         const btnEliminar = document.createElement("button")
         btnEliminar.classList.add("btn-eliminar")
         btnEliminar.textContent = "Eliminar"
-        // btnEliminar.addEventListener("click", () => {
+        btnEliminar.addEventListener("click", () => {
 
-        //     if (productosCarrito.some((item) =>item._id == producto._id)) {
-        //         incrementarItemCarrito(producto._id)
-
-        //     } else {
-        //         const itemCarro = new ItemCarro(producto, 1)
-        //         productosCarrito.push(itemCarro)
-
-
-        //     }
-        //      renderizarCarrito()
-        // })
+            reducirElCarro(item)
+            almacenarLocarStorage()
+            actualizarCarro()
+            renderizarResumenCarro()
+            renderizarCarrito()
+            renderizarProductos()
+        })
         // // Añadir todos al li
         li.appendChild(spanEmoji)
         li.appendChild(cantidad)
@@ -132,24 +134,69 @@ function renderizarCarrito() {
 
 }
 
-function añadirAlCarro(producto) {
-    if (producto._stock <= 0) {
-        alert("No hay stock de ese producto")
-
+function renderizarResumenCarro() {
+    console.log(typeof carrito._subtotal)
+    console.log(carrito._subtotal)
+    resumenCarrito.innerHTML = ""
+    const subtotal = document.createElement("p")
+    subtotal.textContent = "Subtotal: "
+    const spanSubtotal = document.createElement("span")
+    spanSubtotal.textContent = `${carrito._subtotal} €`
+    subtotal.appendChild(spanSubtotal)
+    const descuento = document.createElement("p")
+    descuento.classList.add("desconto")
+    descuento.innerHTML = `Descuento(10% en compras > 100€): -<span>${carrito._descuento}€</span> `
+    if (carrito._subtotal > 100) {
+        descuento.classList.add("aplicado")
     } else {
-
-        if (carrito._itemsCarrito.some((item) => item._id == producto._id)) {
-            incrementarItemCarrito(producto._id)
-        } else {
-            const itemCarro = new ItemCarro(producto, 1)
-            console.log(itemCarro)
-            carrito._itemsCarrito.push(itemCarro)
-        }
-        decrementarStock(producto._id)
-        almacenarLocarStorage()
-        renderizarProductos()
-        renderizarCarrito()
+        descuento.classList.remove("aplicado")
     }
+    const precioFinal = document.createElement("h3")
+    precioFinal.textContent = "Total Final: "
+    const spanPrecioFinal = document.createElement("span")
+    spanPrecioFinal.textContent = `${carrito._precioTotal} €`
+    precioFinal.appendChild(spanPrecioFinal)
+    resumenCarrito.appendChild(subtotal)
+    resumenCarrito.appendChild(descuento)
+    resumenCarrito.appendChild(precioFinal)
+
+}
+function reducirElCarro(item) {
+    carrito._itemsCarrito.forEach(itemCarro => {
+        if (itemCarro._id == item._id) {
+            if (itemCarro._cantidad == 0) {
+                alert("No se puede eliminar ese producto")
+            } else {
+
+                itemCarro._cantidad -= 1
+                if (itemCarro._cantidad == 0) {
+                    carrito._itemsCarrito = carrito._itemsCarrito.filter((itemFilter) => itemFilter._id != item._id)
+                    console.log(carrito._itemsCarrito)
+                }
+                incrementarProductoDisponibles(itemCarro)
+
+            }
+        }
+    });
+
+}
+
+function incrementarProductoDisponibles(item) {
+
+    productosDisponibles.forEach((producto) => {
+        if (producto._id == item._id) {
+            producto._stock++
+        }
+    })
+
+
+}
+
+function actualizarCarro() {
+    carrito.calcularSubtotal()
+
+    carrito.calcularPrecioTotal()
+    console.log("Subtotal:", carrito._subtotal)
 }
 function añadirAlCarro(producto) {
     if (producto._stock <= 0) {
@@ -166,6 +213,8 @@ function añadirAlCarro(producto) {
         }
         decrementarStock(producto._id)
         almacenarLocarStorage()
+        actualizarCarro()
+        renderizarResumenCarro()
         renderizarProductos()
         renderizarCarrito()
     }
@@ -180,7 +229,6 @@ function incrementarItemCarrito(id) {
             console.log(item.constructor.name)
             console.log(item.constructor.name)
             item.incrementarPrecioTotal()
-
         }
     })
 }
@@ -241,8 +289,8 @@ function ajusteStockConLocalStorage() {
 
     carrito._itemsCarrito.forEach((item) => {
         let productoAModificar = productosDisponibles.find((producto) => producto._id == item._id)
-            
-        if (productoAModificar._stockMaximo != productoAModificar._stock + Math.abs(item._cantidad)){
+
+        if (productoAModificar._stockMaximo != productoAModificar._stock + Math.abs(item._cantidad)) {
 
             productoAModificar._stock -= item._cantidad
         }
@@ -261,8 +309,8 @@ function ajusteStockConLocalStorage() {
 document.addEventListener("DOMContentLoaded", async () => {
     await cargarProductosJSON()
     ajusteStockConLocalStorage()
-    ajusteStockConLocalStorage()
     renderizarProductos()
     renderizarCarrito()
-    renderizarCarrito()
+    actualizarCarro()
+    renderizarResumenCarro()
 })
