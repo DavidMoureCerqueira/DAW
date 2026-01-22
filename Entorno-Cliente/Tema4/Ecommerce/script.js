@@ -1,9 +1,12 @@
 const listaProductos = document.getElementById("lista-productos")
 const listaCarro = document.getElementById("lista-carriño")
 const resumenCarrito = document.getElementById("resumo-carriño")
+const resumenCarrito = document.getElementById("resumo-carriño")
 
 
 const IVA = 1.21
+
+// CLASES
 
 // CLASES
 class Producto {
@@ -53,6 +56,30 @@ let productosDisponibles = []
 const carrito = new Carro()
 
 // Renderizaciones
+class Carro {
+    static descuento = 0.1
+    constructor() {
+
+        this._itemsCarrito = lecturaLocalStorage() || []
+        this._subtotal = 0
+        this._precioTotal = 0
+    }
+    calcularPrecioTotal() {
+        if (this._subtotal >= 100) {
+            this._precioTotal = this._subtotal * (1 - Carro.descuento)
+        } else {
+            this._precioTotal = this._subtotal
+        }
+
+    }
+
+}
+
+// Declaraciones para uso global
+let productosDisponibles = []
+const carrito = new Carro()
+
+// Renderizaciones
 
 function renderizarProductos() {
     listaProductos.innerHTML = ""
@@ -73,6 +100,7 @@ function renderizarProductos() {
         btnAñadir.textContent = "Añadir"
         btnAñadir.addEventListener("click", () => {
             añadirAlCarro(producto)
+            añadirAlCarro(producto)
         })
         // Añadir todos al li
         li.appendChild(spanEmoji)
@@ -86,6 +114,7 @@ function renderizarProductos() {
 
 function renderizarCarrito() {
     listaCarro.innerHTML = ""
+    carrito._itemsCarrito.forEach(item => {
     carrito._itemsCarrito.forEach(item => {
 
         const li = document.createElement("li")
@@ -146,12 +175,33 @@ function añadirAlCarro(producto) {
         renderizarCarrito()
     }
 }
+function añadirAlCarro(producto) {
+    if (producto._stock <= 0) {
+        alert("No hay stock de ese producto")
+
+    } else {
+
+        if (carrito._itemsCarrito.some((item) => item._id == producto._id)) {
+            incrementarItemCarrito(producto._id)
+        } else {
+            const itemCarro = new ItemCarro(producto, 1)
+            console.log(itemCarro)
+            carrito._itemsCarrito.push(itemCarro)
+        }
+        decrementarStock(producto._id)
+        almacenarLocarStorage()
+        renderizarProductos()
+        renderizarCarrito()
+    }
+}
 
 function incrementarItemCarrito(id) {
     console.log("Aumentando la cantidad del producto con el ID:", id)
     carrito._itemsCarrito.forEach((item) => {
+    carrito._itemsCarrito.forEach((item) => {
         if (item._id == id) {
             item._cantidad += 1
+            console.log(item.constructor.name)
             console.log(item.constructor.name)
             item.incrementarPrecioTotal()
 
@@ -230,6 +280,8 @@ function ajusteStockConLocalStorage() {
 document.addEventListener("DOMContentLoaded", async () => {
     await cargarProductosJSON()
     ajusteStockConLocalStorage()
+    ajusteStockConLocalStorage()
     renderizarProductos()
+    renderizarCarrito()
     renderizarCarrito()
 })
