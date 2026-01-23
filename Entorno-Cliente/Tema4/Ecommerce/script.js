@@ -194,7 +194,6 @@ function incrementarProductoDisponibles(item) {
 
 function actualizarCarro() {
     carrito.calcularSubtotal()
-
     carrito.calcularPrecioTotal()
     console.log("Subtotal:", carrito._subtotal)
 }

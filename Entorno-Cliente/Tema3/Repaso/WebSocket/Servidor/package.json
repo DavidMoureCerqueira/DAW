@@ -1,5 +1,5 @@
 {
-  "name": "servidor",
+  "name": "t3ex15",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,8 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "ws": "^8.19.0"
+    "ws": "^8.18.3"
   }
 }

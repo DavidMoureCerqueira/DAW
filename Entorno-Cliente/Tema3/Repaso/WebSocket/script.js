@@ -8,6 +8,7 @@ ws.addEventListener("open", () => {
 ws.addEventListener("message", ({ data }) => {
     try {
         dataParsed = JSON.parse(data)
+
         renderizarData(dataParsed)
     } catch (error) {
         console.log("El servidor envio: ", data)
@@ -15,13 +16,7 @@ ws.addEventListener("message", ({ data }) => {
 })
 
 
-const objeto = document.getElementById("objeto")
-const contador = document.getElementById("contador")
-const pujaMarcador = document.getElementById("puja")
-const divNombre = document.getElementById("divNombre")
-const inputNombre = document.getElementById("ipt-nombre")
-const inputPuja = document.getElementById("ipt-puja")
-const divMostrador=document.querySelector(".container-mostrador")
+
 
 let usuario
 class Usuario {
@@ -54,33 +49,39 @@ function enviarMensaje(mensaje) {
 
 
 
+const objeto = document.getElementById("objeto")
+const contador = document.getElementById("contador")
+const pujaMarcador = document.getElementById("puja")
+const divNombre = document.getElementById("divNombre")
+const inputNombre = document.getElementById("ipt-nombre")
+const inputPuja = document.getElementById("ipt-puja")
+const divMostrador = document.querySelector(".container-mostrador")
+const puja=document.getElementById("puja")
 
 
 
 
 function renderizarData(dataParsed) {
-    if (dataParsed._terminada == true) {
-        console.log("Subasta terminada")
-    }
+
     objeto.innerHTML =/*html*/`
         Subasta de: <strong> ${dataParsed._nombre}</strong>
     `
     let tiempoRestante = dataParsed._cuentaAtras
     contador.innerHTML = `${dataParsed._cuentaAtras} s`
     contador.classList.add("cuenta-atras")
-
+    puja.innerHTML=`Puja: ${dataParsed._pujaActual} por: ${dataParsed._usuario._nombre}`
     if (tiempoRestante <= 20) {
         contador.classList.add("parpadear")
     } else {
         contador.classList.remove("parpadear")
 
     }
-    
-    if(dataParsed._terminada==true){
+
+    if (dataParsed._terminada == true) {
         pujaMarcador.innerHTML = `${dataParsed._usuario._nombre} <br>${dataParsed._pujaActual} €`
 
-        divMostrador.innerHTML=/*html*/
-        `<h2>La subasta ha terminado </h2>
+        divMostrador.innerHTML =/*html*/
+            `<h2>La subasta ha terminado </h2>
         <br>
         <p> El ganador del ${dataParsed._nombre} ha sido: ${dataParsed._usuario._nombre} por un valor de <strong>${dataParsed._pujaActual}</strong> euros</p>
         `

@@ -1,3 +1,4 @@
+
 let usuarios = []
 let idIntervalo
 const WebSocket = require("ws");
@@ -93,7 +94,10 @@ console.log("Servidor iniciado")
 
 wss.on("connection", ws => {
     console.log("Se conecto un cliente!")
-    iniciarIntervalo()
+    // if(wss.clients.size>=2){
+
+        iniciarIntervalo()
+    // }
 
 
     ws.on("message", mensaje => {
