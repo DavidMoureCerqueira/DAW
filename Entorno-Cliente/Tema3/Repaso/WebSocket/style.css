@@ -1,0 +1,78 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightskyblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(14, 73, 14);
+    border-radius: 1rem;
+    box-shadow: 0px 5px 10px 2px black;
+    padding: 1rem;
+    height: 80%;
+    min-height: 600px;
+    width: 500px;
+    background-color: white;
+    gap: 2rem;
+    align-items: center;
+}
+
+.container-mostrador {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+    min-height: 400px;
+    border: 2px solid lightblue;
+    text-align: center;
+    padding: 1rem;
+
+}
+
+.ipt-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+}
+
+.label-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+
+/*Estilos temporales*/
+.oculto {
+    display: none;
+}
+
+.cuenta-atras {
+    font-size: 5rem;
+    color: rgb(87, 87, 230);
+}
+
+.parpadear {
+    color: red;
+    animation: parpadear infinite 1.3s linear
+}
+
+@keyframes parpadear {
+    50% {
+        opacity: 0.1;
+    }
+}
