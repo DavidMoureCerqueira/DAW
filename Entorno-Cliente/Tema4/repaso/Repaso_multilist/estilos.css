@@ -1,0 +1,155 @@
+/* O teu Nome e Apelidos, e o nome do equipo empregado. */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+header {
+    background-color: #fbbc05; /* Amarelo Google Keep */
+    color: #202124;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+#btn-nova-lista {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #202124;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#btn-nova-lista:hover {
+    background-color: #000;
+}
+
+/* CONTENEDOR GRID PARA AS NOTAS */
+.contedor-listas {
+    display: grid;
+    /* Crear columnas autoajustables. Cada columna terá un ancho mínimo de 250px */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ESTILO DA NOTA (LISTA INDIVIDUAL) */
+.nota {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.nota h3 {
+    margin-top: 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+}
+
+/* BOTÓN ELIMINAR NOTA */
+.btn-eliminar-nota {
+    align-self: flex-end;
+    background: none;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-eliminar-nota:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* LISTA DE TAREFAS INDIVIDUAIS */
+.lista-tarefas {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.lista-tarefas li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px dotted #ccc;
+    font-size: 0.95em;
+}
+
+.lista-tarefas li:last-child {
+    border-bottom: none;
+}
+
+.lista-tarefas li input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.lista-tarefas li.completada span {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.btn-eliminar-tarefa {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 1.1em;
+    padding: 0 5px;
+}
+
+.btn-eliminar-tarefa:hover {
+    color: #dc3545;
+}
+
+/* FORMULARIO ENGADIR TAREFA */
+.form-engadir-tarefa {
+    display: flex;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.form-engadir-tarefa input[type="text"] {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    font-size: 0.9em;
+}
+
+.form-engadir-tarefa button {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}

@@ -11,6 +11,7 @@ class Lista {
         let tareasLista = document.createElement("ul")
         tareasLista.classList.add("lista-tarefas")
 
+        this._tareasLista.sort((a,b)=>a._nombre.toLowerCase().localeCompare(b._nombre.toLowerCase()))
         this._tareasLista.forEach((tarea) => {
             const tareaLi = document.createElement("li")
             const inputEstado = document.createElement("input")
@@ -33,7 +34,7 @@ class Lista {
             btnEliminar.addEventListener("click", () => {
                 this.eliminarTarea(tarea._id)
                 tareaLi.remove()
-                guardarListasLocalStorage()
+               guardarListasLocalStorage()
             })
             tareaLi.appendChild(inputEstado)
             tareaLi.appendChild(spanNombre)
@@ -164,7 +165,9 @@ function leerListasLocaLStorage() {
 }
 function transformarRawAObjetos(rawListas) {
     console.log(rawListas)
-
+    if(rawListas==null){
+        return []
+    }
     if (rawListas.lenght == 0) {
         return []
     }
