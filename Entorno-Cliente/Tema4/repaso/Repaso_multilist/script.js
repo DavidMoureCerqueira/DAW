@@ -4,20 +4,24 @@ const contenedorListas = document.getElementById("contedor-listas")
 
 class Gestor {
     constructor() {
-        this._listaListas = []
+        this._listaListas = this.leerLocalStorage() || []
     }
     eliminarLista(nombreLista) {
         this._listaListas = this._listaListas.filter((lista) => lista._nombre != nombreLista)
+
     }
     añadirLista(lista) {
         this._listaListas.push(lista)
     }
-    guardarEnLocalStorage(){
-        localStorage.setItem("Listas", this._listaListas)
+    guardarEnLocalStorage() {
+        localStorage.setItem("Listas", JSON.stringify(this._listaListas))
     }
-    leerLocalStorage(){
-        const listas=localStorage.getItem("Listas")
-        // this._listaListas=transformarLocalStorage(listas)
+    leerLocalStorage() {
+        const listas = localStorage.getItem("Listas")
+        if (listas == null) {
+            return []
+        }
+        return transformarLocalStorage(listas)
     }
 }
 
@@ -31,7 +35,7 @@ class ListaTareas {
         this._tareas.push(tarea)
     }
     eliminarTarea(id) {
-        // this._listaTarea = this._listaTarea.filter((tarea) => tarea._id != id)
+        this._tareas = this._tareas.filter((tarea) => tarea._id != id)
         console.log("Eliminando tarea con id:", id)
     }
     renderizarTareas() {
@@ -47,6 +51,7 @@ class ListaTareas {
             btnEliminarTarea.addEventListener("click", () => {
                 this.eliminarTarea(tarea._id)
                 liTarea.remove()
+                document.dispatchEvent(new CustomEvent("guardar-listas"))
             })
             const check = document.createElement("input")
             check.setAttribute("type", "checkbox")
@@ -56,8 +61,11 @@ class ListaTareas {
                 console.log(tarea)
                 tarea.alternarTarea()
                 console.log(tarea)
+                document.dispatchEvent(new CustomEvent("guardar-listas"))
             })
+            console.log("Antes del if", tarea._nombre, tarea._completada)
             if (tarea._completada) {
+                console.log("Prueba")
                 liTarea.classList.add("completada")
                 check.setAttribute("checked", "")
             }
@@ -83,6 +91,19 @@ class Tarea {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 const gestor = new Gestor()
 btnNuevaLista.addEventListener("click", () => {
     let nombreLista = iptNombreLista.value
@@ -96,12 +117,12 @@ btnNuevaLista.addEventListener("click", () => {
     }
     console.log(gestor._listaListas)
     gestor.añadirLista(new ListaTareas(nombreLista))
-    renderizarListas()
+    // renderizarListas()
+
+    document.dispatchEvent(new CustomEvent("guardar-listas"))
+    document.dispatchEvent(new CustomEvent("renderizar-listas"))
 
 })
-
-
-
 
 function renderizarListas() {
     contenedorListas.innerHTML = ""
@@ -118,6 +139,7 @@ function renderizarListas() {
         btnEliminar.addEventListener("click", () => {
             gestor.eliminarLista(lista._nombre)
             divLista.remove()
+            document.dispatchEvent(new CustomEvent("guardar-listas"))
         })
         divBtnEliminar.appendChild(btnEliminar)
         const divInput = document.createElement("div")
@@ -129,7 +151,10 @@ function renderizarListas() {
         btnAñadirTarea.addEventListener("click", () => {
             let tarea = new Tarea(inputTarea.value)
             lista.añadirTarea(tarea)
-            renderizarListas()
+            // renderizarListas()
+            console.log("pulsado añadir tarea, emitiendo eventos...")
+            document.dispatchEvent(new CustomEvent("guardar-listas"))
+            document.dispatchEvent(new CustomEvent("renderizar-listas"))
         })
         divInput.appendChild(inputTarea)
         divInput.appendChild(btnAñadirTarea)
@@ -146,8 +171,37 @@ function renderizarListas() {
 }
 
 
-// document.addEventListener("DOMContentLoaded",
-//     renderizarListas()
-// )
+document.addEventListener("DOMContentLoaded",
+    renderizarListas()
+)
+
+document.addEventListener("renderizar-listas", () => {
+    console.log("Evento Capturado")
+    renderizarListas()
+})
+document.addEventListener("guardar-listas", () => {
+    console.log("Guardando...")
+    gestor.guardarEnLocalStorage()
+})
+
+function transformarLocalStorage(listas) {
+
+    let listasObject = JSON.parse(listas)
+    console.log(listasObject)
+    if (listasObject.length >= 0) {
+        listasObject = listasObject.map((lista) => {
+            lista._tareas = lista._tareas.map((tarea) => {
+                console.log(tarea._completada)
+                tarea = new Tarea(tarea._nombre, tarea._id, tarea._completada)
+                console.log(tarea)
+                return tarea
+            })
+            lista = new ListaTareas(lista._nombre, lista._tareas)
+            return lista
+        })
+    }
+
+    return listasObject
 
 
+}
