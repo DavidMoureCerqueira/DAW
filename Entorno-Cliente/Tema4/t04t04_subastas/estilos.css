@@ -1,0 +1,10 @@
+body { font-family: sans-serif; background: #eee; display: flex; justify-content: center; }
+.container { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); width: 400px; text-align: center; margin-top: 50px;}
+.artigo-card { border: 2px solid #333; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+.info-poxa span { font-weight: bold; font-size: 1.2em; color: #2c3e50; }
+.tempo { font-size: 1.5em; color: #e67e22; }
+.alerta { color: red; font-weight: bold; animation: parpadeo 1s infinite; }
+.controles input { padding: 10px; margin: 5px; width: 80%; }
+button { padding: 10px 20px; background: #27ae60; color: white; border: none; cursor: pointer; }
+.mensaxes { margin-top: 15px; font-size: 0.8em; color: #7f8c8d; max-height: 100px; overflow-y: auto; }
+@keyframes parpadeo { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
