@@ -39,7 +39,7 @@ ws.onmessage = ((mensaje) => {
             console.log("La puja a terminado")
             const stringGanador = `<p><strong>Ganador: ${dataParsed.gañador}</strong></p>`
             document.getElementById("poxador-actual").innerHTML = stringGanador
-        
+
         default:
             break;
 
