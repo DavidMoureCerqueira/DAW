@@ -12,48 +12,69 @@ ws.onopen = (ev) => {
 }
 ws.onmessage = ((mensaje) => {
     let dataParsed = JSON.parse(mensaje.data)
+    console.log(dataParsed.tipo)
     console.log(dataParsed.artigo)
     articuloRaw = dataParsed.artigo
     switch (dataParsed.tipo) {
         case "ESTADO_INICIAL":
             console.log("Opcion tipo")
-            articulo = new Artigo(articuloRaw.id, articuloRaw.nome, articuloRaw.prezoActual, articuloRaw.poxadorActual)
-            articulo.tempo = articuloRaw.tempoRestante
+            articulo = convertirArticulo(articuloRaw)
+            console.log(articulo)
             articulo.renderizar()
+            break;
         case "ACTUALIZACION":
-            console.log("Opcion actualización")
-            console.log(articuloRaw)
+            console.log("qwses")
+            articulo.actualizarDesdeJSON(articuloRaw)
+            console.log(articulo)
+            articulo.renderizar()
+            break;
+        case "TICK":
+
+            articulo.tempo = dataParsed.tempo
+
+            articulo.renderizar()
+            break;
+
+        case "FIN":
+            console.log("La puja a terminado")
+            const stringGanador = `<p><strong>Ganador: ${dataParsed.gañador}</strong></p>`
+            document.getElementById("poxador-actual").innerHTML = stringGanador
         
         default:
             break;
-        
+
     }
 })
 
 
 
 btnPuja.addEventListener("click", () => {
-    const usuario = new Usuario(usuarioIPT.value,ofertaIPT.value)
+    const usuario = new Usuario(usuarioIPT.value, ofertaIPT.value)
     enviarPuja(usuario)
 
 })
 
 
-class Usuario{
-    constructor(nombre,puja,id=new Date().valueOf()){
-        this._id=id
-        this._nombre=nombre
-        this._puja=puja
+class Usuario {
+    constructor(nombre, puja, id = new Date().valueOf()) {
+        this._id = id
+        this._nombre = nombre
+        this._puja = puja
 
     }
 
 }
 
-function enviarPuja(usuario){
-    let cantidad=usuario._puja
-    console.log(cantidad)
-    console.log(JSON.stringify({tipo:"POXA", valor:usuario._puja}))
-    
-    ws.send(JSON.stringify({tipo:"POXA", valor:usuario._puja}))
+function convertirArticulo(articuloRaw) {
+    let articulo = new Artigo(articuloRaw.id, articuloRaw.nome, articuloRaw.prezoActual, articuloRaw.poxadorActual)
+    articulo.tempo = articuloRaw.tempoRestante
+    return articulo
+}
+
+function enviarPuja(usuario) {
+    let cantidad = usuario._puja
+
+
+    ws.send(JSON.stringify({ tipo: "POXA", valor: usuario._puja, usuario: usuario._nombre }))
 
 }
