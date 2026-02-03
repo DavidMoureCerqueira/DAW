@@ -10,7 +10,7 @@ class Lista {
     renderizarTareasNota(nota) {
         let tareasLista = document.createElement("ul")
         tareasLista.classList.add("lista-tarefas")
-
+        
         this._tareasLista.sort((a,b)=>a._nombre.toLowerCase().localeCompare(b._nombre.toLowerCase()))
         this._tareasLista.forEach((tarea) => {
             const tareaLi = document.createElement("li")

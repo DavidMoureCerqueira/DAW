@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+    <meta charset="UTF-8">
+    <title>Subasta en Directo - POO & WebSockets</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script type="module" src="cliente.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🔨 Subasta en Tempo Real</h1>
+        
+        <div id="pantalla-artigo" class="artigo-card">
+            <h2 id="nome-artigo">Cargando...</h2>
+            <div class="info-poxa">
+                <p>Prezo Actual: <span id="prezo-actual">0</span> €</p>
+                <p>Líder: <span id="poxador-actual">-</span></p>
+                <p class="tempo">Tempo restante: <span id="cronometro">--</span>s</p>
+            </div>
+        </div>
+
+        <div id="controles" class="controles">
+            <input type="text" id="input-usuario" placeholder="O teu nome">
+            <input type="number" id="input-oferta" placeholder="A túa oferta">
+            <button id="btn-poxar">Realizar Poxa</button>
+        </div>
+
+        <div id="mensaxes" class="mensaxes"></div>
+    </div>
+</body>
+</html>
